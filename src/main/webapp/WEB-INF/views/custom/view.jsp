@@ -12,7 +12,7 @@
 <header>
     <nav>
         <div class="row">
-            <a href="/">
+            <a href="/#">
             <img
                 src="/img/Shoetudio_logo.png"
                 alt="Shoetudio"
@@ -20,10 +20,9 @@
             /></a>
             <ul class="main-nav">
                 <li><a href="/about">About Us</a></li>
-                <li><a href="#">Custom</a></li>
+                <li><a href="/custom/list">Custom</a></li>
                 <li><a href="/artist/list">Artist</a></li>
                 <li><a href="/community/list?cp=1">Community</a></li>
-            </ul>
         </div>
     </nav>
 </header>
@@ -42,6 +41,7 @@
                     </div>
                     <div class="col-md-6 mt-5">
                         <img class="card-img img-fluid" src="/img/custom3.png" alt="Card image cap">
+
                     </div>
                     <div class="col-md-6 mt-5">
                         <img class="card-img img-fluid" src="/img/custom4.png" alt="Card image cap">
@@ -147,9 +147,9 @@
     <div class="row">
         <div class="col span-1-of-2">
             <ul class="footer-nav">
-                <li><a href="/">Home</a></li>
+                <li><a href="/#">Home</a></li>
                 <li><a href="/about">About Us</a></li>
-                <li><a href="#">Custom</a></li>
+                <li><a href="/custom/list">Custom</a></li>
                 <li><a href="/artist/list">Artists</a></li>
                 <li><a href="/community/list?cp=1">Community</a></li>
             </ul>
@@ -168,3 +168,4 @@
         <p>Copyright &copy; 2021 by Shoetudio. All rights reserved.</p>
     </div>
 </footer>
+

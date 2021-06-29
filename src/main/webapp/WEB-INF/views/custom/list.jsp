@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="/css/templatemo.css" />
@@ -17,15 +17,15 @@
 <header>
     <nav>
         <div class="row">
-            <a href="/">
+            <a href="/#">
             <img
                 src="/img/Shoetudio_logo.png"
                 alt="Shoetudio"
                 class="logo"
             /></a>
             <ul class="main-nav">
-                <li><a href="/about_us">About Us</a></li>
-                <li><a href="#">Custom</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/custom/list">Custom</a></li>
                 <li><a href="/artist/list">Artist</a></li>
                 <li><a href="/community/list?cp=1">Community</a></li>
 
@@ -37,7 +37,6 @@
                 <li><a class="trigger4" id="logoutbtn" href="#" style="cursor: pointer;
                 color: white; font-size: 20px">Log Out</a></li>
         </c:if>
-            </ul>
         </div>
     </nav>
 </header>
@@ -66,7 +65,6 @@
     </div>
 </div>
 
-
 <!-- 페이지 네이션 시작 -->
 <div class="row">
     <div class="col-12 mb-3">
@@ -93,12 +91,11 @@
     <div class="row">
         <div class="col span-1-of-2">
             <ul class="footer-nav">
-                <li><a href="/">Home</a></li>
+                <li><a href="/#">Home</a></li>
                 <li><a href="/about">About Us</a></li>
-                <li><a href="#">Custom</a></li>
+                <li><a href="/custom/list">Custom</a></li>
                 <li><a href="/artist/list">Artists</a></li>
                 <li><a href="/community/list?cp=1">Community</a></li>
-            </ul>
         </div>
         <div class="col span-1-of-2">
             <ul class="social-icons">
@@ -143,26 +140,9 @@
 
             <button class="lgm-btn1 modal-button2">confirm</button>
             <button class="lgm-btn2"><a href="/custom/list">cancel</a></button>
-
         </form>
     </div>
 </div>
-    </c:if>
-
-<c:if test="${not empty UID}">
-<div class="modal4">
-    <div class="modal-content4" style="height: 200px">
-        <span class="close-button4">&times;</span>
-        <form>
-            <div style="text-align: center">
-                <h3>로그아웃 하시겠습니까?</h3>
-            </div>
-            <br/>
-            <div class="modal-button3" style="text-align: center">
-                <button class="lgm-btn1">YES</button>
-                <button class="lgm-btn2">NO</button>
-            </div>
-        </form>
+  </c:if>
     </div>
 </div>
-    </c:if>

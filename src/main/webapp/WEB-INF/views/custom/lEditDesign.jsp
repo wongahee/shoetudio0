@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 
 <link rel="stylesheet" href="/css/lEdit.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
@@ -13,7 +13,7 @@
 <header>
     <nav>
         <div class="row">
-            <a href="/">
+            <a href="/#">
             <img
                 src="/img/Shoetudio_logo.png"
                 alt="Shoetudio"
@@ -21,7 +21,7 @@
             /></a>
             <ul class="main-nav">
                 <li><a href="/about">About Us</a></li>
-                <li><a href="#">Custom</a></li>
+                <li><a href="/custom/list">Custom</a></li>
                 <li><a href="/artist/list">Artist</a></li>
                 <li><a href="/community/list?cp=1">Community</a></li>
             </ul>
@@ -166,14 +166,13 @@
                                     <img class="card-img img-fluid" src="/i/Pattern/reset.png" alt="Card image cap" style="cursor: pointer">
                                     <p class="text-light" style="text-align: center">Reset</p></a> </li>
                             </div>
-    .
+    
                                     </ul>
                                 </li>
 
                                 <hr class="col-10" style="background-color: #fffb00">
                             <div class="col-md-10 offset-1">
-
-                                <button type="button" class="btn btn-success" id="saveBtn">Edit Save</button>
+                                <button type="button" class="btn btn-info" id="saveBtn">Edit Save</button>
                             </div>
                             </ul>
                         </div>
@@ -188,9 +187,9 @@
     <div class="row">
         <div class="col span-1-of-2">
             <ul class="footer-nav">
-                <li><a href="/">Home</a></li>
+                <li><a href="/#">Home</a></li>
                 <li><a href="/about">About Us</a></li>
-                <li><a href="#">Custom</a></li>
+                <li><a href="/custom/list">Custom</a></li>
                 <li><a href="/artist/list">Artists</a></li>
                 <li><a href="/community/list?cp=1">Community</a></li>
             </ul>
@@ -217,7 +216,6 @@
     </div>
 </footer>
 
-
 <!-- 사진 저장 스크립트 시작 -->
 <script>
     document.getElementById('saveBtn').onclick = function(){
@@ -228,3 +226,4 @@
     }
 </script>
 <!-- 사진 저장 스크립트 종료 -->
+

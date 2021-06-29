@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cmreply">
+    <!-- 사용자 커스텀 게시판 댓글 -->
+
+    <!-- 댓글 불러오기 -->
+    <select id="selectReply" statementType="PREPARED" parameterType="String" resultType="Shoetudio.spring.mvc.vo.Reply" >
+        select * from commreply where cmno = #{cmno} order by rno
+    </select>
+
+    <!-- 댓글 작성하기 -->
+    <insert id="insertComment" statementType="PREPARED" parameterType="Shoetudio.spring.mvc.vo.Reply" >
+        insert into commreply (reply, userid, cmno)
+        values (#{reply}, #{userid}, #{cmno})
+    </insert>
+
+    <!-- 마지막 댓글 번호 찾기 -->
+    <select id="selectLastRno" statementType="PREPARED" resultType="String">
+        select AUTO_INCREMENT from information_schema.TABLES
+        where TABLE_NAME = 'commreply'
+    </select>
+
+    <!-- 댓글 달은 테이블 번호 찾고 댓글 번호 지우기 -->
+    <delete id="deleReply" statementType="PREPARED" parameterType="String" >
+        delete from commreply where cmno = #{cmno} and rno = #{rno}
+    </delete>
+
+    <!-- 댓글 수정 -->
+    <update id="updateReply" statementType="PREPARED" parameterType="Shoetudio.spring.mvc.vo.Reply" >
+        update commreply set reply = ${reply} where rno = #{rno}
+    </update>
+
+</mapper>

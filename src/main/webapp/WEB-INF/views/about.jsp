@@ -1,5 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -12,13 +11,15 @@
     <link rel="stylesheet" type="text/css" href="/css/about_us.css" />
     <link rel="stylesheet" type="text/css" href="/css/queries.css" />
     <link rel="stylesheet" type="text/css" href="/css/header-modal.css">
+    <link rel="stylesheet" type="text/css" href="/css/header-modal.css" />
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100&display=swap"
       rel="stylesheet"
       type="text/css"
     />
-
+    <link rel="stylesheet" type="text/css" href="/css/header-modal.css" />
+    
     <title>Shoetudio-Home</title>
   </head>
   <body>
@@ -26,14 +27,14 @@
     <header>
       <nav>
         <div class="row">
-          <a href="/">
+          <a href="/#">
           <img
             src="/img/Shoetudio_logo.png"
             alt="Shoetudio"
             class="logo"
           /></a>
           <ul class="main-nav">
-            <li><a href="#">About Us</a></li>
+            <li><a href="/about">About Us</a></li>
             <li><a href="/custom/list">Custom</a></li>
             <li><a href="/artist/list">Artist</a></li>
             <li><a href="/community/list?cp=1">Community</a></li>
@@ -45,7 +46,6 @@
             <li><a class="trigger4" id="22" style="cursor: pointer;
             color: white; font-size: 20px">Log Out</a></li>
         </c:if>
-          </ul>
         </div>
       </nav>
       <div class="hero-text-box">
@@ -57,13 +57,13 @@
         <a class="btn btn-ghost" href="/artist/list">Custom Shoes Forum</a>
       </div>
     </header>
-
+      
     <!-- Feature Section -->
     <section class="section-features">
       <div class="row">
         <h2>The #1 community for custom sneakers</h2>
         <p class="long-copy">
-          Browse and buy custom sneakers from Converse & Nike created by
+          Browse and buy custom sneakers from Converse created by
           independent artists.
         </p>
       </div>
@@ -79,7 +79,7 @@
         </div>
         <div class="col span-1-of-4 box">
           <i class="ion-checkmark-circled icon-big"></i>
-          <h3>100% Gurantee</h3>
+          <h3>100% Guarantee</h3>
           <p>All customs are done on ONLY 100% retail authentic sneakers.</p>
         </div>
         <div class="col span-1-of-4 box">
@@ -220,7 +220,7 @@
           </div>
           <div class="citi-feature">
             <i class="ion-social-twitter icon-small"></i>
-            <a href="#">@Shoetudio_Deajeon</a>
+            <a href="#">@Shoetudio_Daejeon</a>
           </div>
         </div>
         <div class="col span-1-of-4 box">
@@ -236,7 +236,7 @@
           </div>
           <div class="citi-feature">
             <i class="ion-social-twitter icon-small"></i>
-            <a href="#">@Shoetudio_Deagu</a>
+            <a href="#">@Shoetudio_Daegu</a>
           </div>
         </div>
         <div class="col span-1-of-4 box">
@@ -252,7 +252,7 @@
           </div>
           <div class="citi-feature">
             <i class="ion-social-twitter icon-small"></i>
-            <a href="#">@Busan</a>
+            <a href="#">@Shoetudio_Busan</a>
           </div>
         </div>
       </div>
@@ -485,7 +485,7 @@
                 <label for="findus">How did you find us</label>
               </div>
               <div class="col span-2-of-3">
-                <select name="findus" id="findus">
+                <select name="findus" id="findus">               
                   <option value="friends" selected>Friends</option>
                   <option value="search">Search Engine</option>
                   <option value="ad">Advertisement</option>
@@ -533,7 +533,7 @@
         <div class="col span-1-of-2">
           <ul class="footer-nav">
             <li><a href="/">Home</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><a href="/about">About Us</a></li>
             <li><a href="/custom/list">Custom</a></li>
             <li><a href="/artist/list">Artists</a></li>
             <li><a href="/community/list?cp=1">Community</a></li>
@@ -604,6 +604,5 @@
           </form>
         </div>
       </div>
-
   </body>
 </html>

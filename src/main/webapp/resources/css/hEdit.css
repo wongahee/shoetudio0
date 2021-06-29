@@ -1,0 +1,11 @@
+
+.slick-slide{position:relative;}
+.canvas{position:relative;}
+.canvas::after{content:"";display:block;padding-bottom: 100%;}
+#mycanvas1{background: url("../i/nomal.png")no-repeat;background-size: cover;}
+#mycanvas2{background: url("../i/nomal2.png")no-repeat;background-size: cover;}
+#mycanvas3{background: url("../i/nomal3.png")no-repeat;background-size: cover;}
+#mycanvas4{background: url("../i/nomal4.png")no-repeat;background-size: cover;}
+.pattern{width: 100%; height: 100%; position: absolute; top:0; left:0; z-index: 10;}
+.pattern2{width: 100%; height: 100%; position: absolute; top:0; left:0; z-index: 20;}
+.pattern3{width: 100%; height: 100%; position: absolute; top:0; left:0; z-index: 30;}

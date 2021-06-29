@@ -1,5 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -35,12 +34,13 @@
     <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
     <title>SHOETUDIO</title>
   </head>
+  
   <body>
     <div class="row">
       <div class="span-1-of-4">
         <section class="showcase">
           <header>
-            <a href="/">
+            <a href="/#">
             <img
               src="/img/Shoetudio_logo.png"
               alt="Shoetudio_Logo"
@@ -124,4 +124,5 @@
       </div>
     </div>
   </body>
+</head>              
 </html>

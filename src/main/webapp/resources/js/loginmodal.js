@@ -5,7 +5,6 @@ const trigger4 = document.querySelector(".trigger4");
 const closeButton3 = document.querySelector(".close-button3");
 const closeButton4 = document.querySelector(".close-button4");
 
-
 try {
     trigger3.addEventListener("click", toggleModal3);
 } catch { }
