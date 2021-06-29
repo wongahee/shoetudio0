@@ -169,5 +169,3 @@
         <p>Copyright &copy; 2021 by Shoetudio. All rights reserved.</p>
     </div>
 </footer>
-
-

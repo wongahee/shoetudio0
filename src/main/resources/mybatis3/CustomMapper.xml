@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="custom">
+
+    <select id="selectCustom" statementType="PREPARED"
+            parameterType="int"
+            resultType="SHOETUDIO.spring.mvc.vo.Custom">
+        select cno, sname, fname
+        from custom order by cno desc limit #{snum}, 12
+    </select>
+
+</mapper>
