@@ -2,37 +2,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="/css/templatemo.css" />
 <link rel="stylesheet" type="text/css" href="/css/header_footer.css" />
-<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
 <link rel="stylesheet" type="text/css" href="/css/header-modal.css"/>
+<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
 
 <header>
     <nav>
         <div class="row">
+            <a href="/#">
             <img
-                    src="/img/Shoetudio_logo.png"
-                    alt="Shoetudio"
-                    class="logo"
-            />
+                src="/img/Shoetudio_logo.png"
+                alt="Shoetudio"
+                class="logo"
+            /></a>
             <ul class="main-nav">
-                <li>
-                    <a
-                            href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/about_us.html"
-                    >About Us</a
-                    >
-                </li>
-                <li><a href="#">Custom</a></li>
-                <li><a href="#">Artist</a></li>
-                <li><a href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/board/list.html">Community</a></li>
-                <li><a class="trigger3" id="11" style="cursor: pointer; color: white; font-size: 20px">Log In</a></li>
-                <li><a class="trigger4" id="22" style="cursor: pointer; color: white; font-size: 20px">Log Out</a></li>
-            </ul>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/custom/list">Custom</a></li>
+                <li><a href="/artist/list">Artist</a></li>
+                <li><a href="/community/list?cp=1">Community</a></li>
         </div>
     </nav>
 </header>
-
 
 <!-- 본문 시작 -->
 <section class="bg-light">
@@ -40,15 +33,12 @@
         <div class="row">
             <div class="col-lg-12 mt-5">
                 <div class="row">
-
                     <div class="col-md-6 ">
                         <img class="card-img img-fluid" src="/img/custom1.png" alt="Card image cap">
                     </div>
-
                     <div class="col-md-6">
                         <img class="card-img img-fluid" src="/img/custom2.png" alt="Card image cap">
                     </div>
-
                     <div class="col-md-6 mt-5">
                         <img class="card-img img-fluid" src="/img/custom3.png" alt="Card image cap">
 
@@ -65,17 +55,16 @@
                         <h1 class="h2">Custom Pride Chuck Taylor All Star By You</h1>
                         <br>
                         <h6>Description:</h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse. Donec condimentum elementum convallis. Nunc sed orci a diam ultrices aliquet interdum quis nulla.</p>
-
+                        <p>Customize your new favorite Chucks with fresh summer colors and tie dye prints. Now available for the first time with print-popped bindings.
+                        </p>
                         <h6>Specification:</h6>
                         <ul class="list-unstyled pb-3">
-                            <li>Lorem ipsum dolor sit</li>
-                            <li>Amet, consectetur</li>
-                            <li>Adipiscing elit,set</li>
-                            <li>Duis aute irure</li>
-                            <li>Ut enim ad minim</li>
-                            <li>Dolore magna aliqua</li>
-                            <li>Excepteur sint</li>
+                            <li>Choose a color and material.</li>
+                            <li>Match your shoe to your personality with multiple color and material options.</li>
+                            <li>It’s all in the details.</li>
+                            <li>Pick from a variety of laces, eyelets, rubber sidewalls, and exclusive upper and midsole prints to add a unique twist to your design.</li>
+                            <li>Make it personal.</li>
+                            <li>Add your name, number or a personal, embroidered ID.</li>
                         </ul>
 
                         <div class="row">
@@ -88,14 +77,11 @@
                                     <img src="/img/low.png" alt="Card image cap">Low Edit Design</button>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
 </section>
 <!-- 본문 끝 -->
 
@@ -107,15 +93,12 @@
         </div>
 
         <!--Start Carousel Wrapper-->
-
         <div id="product" style="margin-bottom: -700px">
             <div class="col-3">
                 <div class="product-wap card rounded-0">
                     <div class="card rounded-0">
                         <img class="card-img rounded-0 img-fluid" src="/img/customex1.png"
-                        height="100px"
-                        width="auto">
-
+                        height="100px" width="auto">
                     </div>
                 </div>
             </div>
@@ -124,9 +107,7 @@
                 <div class="product-wap card rounded-0">
                     <div class="card rounded-0">
                         <img class="card-img rounded-0 img-fluid" src="/img/customex2.png"
-                             height="100px"
-                             width="auto">
-
+                             height="100px" width="auto">
                     </div>
                 </div>
             </div>
@@ -135,9 +116,7 @@
                 <div class="product-wap card rounded-0">
                     <div class="card rounded-0">
                         <img class="card-img rounded-0 img-fluid" src="/img/customex3.png"
-                             height="100px"
-                             width="auto">
-
+                             height="100px" width="auto">
                     </div>
                 </div>
             </div>
@@ -146,10 +125,7 @@
                 <div class="product-wap card rounded-0">
                     <div class="card rounded-0">
                         <img class="card-img rounded-0 img-fluid" src="/img/customex4.png"
-                             height="100px"
-                             width="auto">
-
-
+                             height="100px" width="auto">
                     </div>
                 </div>
             </div>
@@ -158,9 +134,7 @@
                 <div class="product-wap card rounded-0">
                     <div class="card rounded-0">
                         <img class="card-img rounded-0 img-fluid" src="/img/customex5.png"
-                             height="100px"
-                             width="auto">
-
+                             height="100px" width="auto">
                     </div>
                 </div>
             </div>
@@ -173,76 +147,25 @@
     <div class="row">
         <div class="col span-1-of-2">
             <ul class="footer-nav">
-                <li>
-                    <a
-                            href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/index(final).html"
-                    >Home</a
-                    >
-                </li>
-                <li>
-                    <a
-                            href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/about_us.html"
-                    >About Us</a
-                    >
-                </li>
-                <li><a href="#">Custom</a></li>
-                <li><a href="#">Artists</a></li>
-                <li><a href="#">Community</a></li>
+                <li><a href="/#">Home</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/custom/list">Custom</a></li>
+                <li><a href="/artist/list">Artists</a></li>
+                <li><a href="/community/list?cp=1">Community</a></li>
             </ul>
         </div>
         <div class="col span-1-of-2">
             <ul class="social-icons">
-                <li>
-                    <a href="#"><i class="ion-social-facebook"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="ion-social-twitter"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="ion-social-googleplus"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="ion-social-instagram"></i></a>
-                </li>
+                <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+                <li><a href="#"><i class="ion-social-instagram"></i></a></li>
             </ul>
         </div>
     </div>
+
     <div class="row">
         <p>Copyright &copy; 2021 by Shoetudio. All rights reserved.</p>
     </div>
 </footer>
 
-<div class="modal3">
-    <div class="modal-content3" style="height: 250px">
-        <span class="close-button3">&times;</span>
-        <form>
-            <p stong>LOG IN</p>
-            <div style="text-align: left">
-                <h6>아이디 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" placeholder="아이디를 입력해주세요" style="width: 220px"> </h6>
-            </div>
-            <div style="text-align: left">
-                <h6>비밀번호 :&nbsp;&nbsp;&nbsp;<input type="password" placeholder="비밀번호를 입력해주세요" style="width: 220px; height: 38px"> </h6>
-            </div>
-
-            <button class="lgm-btn1 modal-button2">confirm</button>
-            <button class="lgm-btn2">cancel</button>
-
-        </form>
-    </div>
-</div>
-<div class="modal4">
-    <div class="modal-content4" style="height: 200px">
-        <span class="close-button4">&times;</span>
-        <form>
-            <div style="text-align: center">
-                <h3>로그아웃 하시겠습니까?</h3>
-            </div>
-            <br/>
-            <div class="modal-button3" style="text-align: center">
-                <button class="lgm-btn1">YES</button>
-                <button class="lgm-btn2">NO</button>
-            </div>
-        </form>
-
-    </div>
-</div>

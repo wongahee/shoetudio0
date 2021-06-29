@@ -5,22 +5,36 @@ const trigger4 = document.querySelector(".trigger4");
 const closeButton3 = document.querySelector(".close-button3");
 const closeButton4 = document.querySelector(".close-button4");
 
+try {
+    trigger3.addEventListener("click", toggleModal3);
+} catch { }
+
+trigger4.addEventListener("click", toggleModal4);
+try {
+    closeButton3.addEventListener("click", toggleModal3);
+} catch { }
+try {
+    closeButton4.addEventListener("click", toggleModal4);
+} catch { }
+window.addEventListener("click", windowOnClick);
+
+
 function toggleModal3() {
-    modal3.classList.toggle("show-modal");
+    try {
+        modal3.classList.toggle("show-modal");
+    } catch {}
 }
 
 function toggleModal4() {
-    modal4.classList.toggle("show-modal");
+    try {
+        modal4.classList.toggle("show-modal");
+    } catch {}
 }
 
 function windowOnClick(event) {
-    if (event.target === modal) {
-        toggleModal();
-    }
+    try {
+        if (event.target === modal) {
+            toggleModal();
+        }
+    } catch {}
 }
-
-trigger3.addEventListener("click", toggleModal3);
-trigger4.addEventListener("click", toggleModal4);
-closeButton3.addEventListener("click", toggleModal3);
-closeButton4.addEventListener("click", toggleModal4);
-window.addEventListener("click", windowOnClick);
