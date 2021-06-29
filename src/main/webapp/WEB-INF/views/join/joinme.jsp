@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -47,6 +47,9 @@
   <!-- daum 주소 -->
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
+  <!-- 캡챠 -->
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+
   <title>Account Registration</title>
 </head>
 <body>
@@ -61,19 +64,14 @@
       />
       <ul class="main-nav">
         <li>
-          <a
-                  href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/about_us.html"
-          >About Us</a
-          >
+          <a href="/about">About Us</a>
         </li>
-        <li><a href="#">Custom</a></li>
-        <li><a href="#">Artist</a></li>
-        <li>
-          <a
-                  href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/board/list.html"
-          >Community</a></li>
+        <li><a href="/custom/list">Custom</a></li>
+        <li><a href="/artist/list">Artist</a></li>
+        <li><a href="/community/list?cp=1">Community</a></li>
         <li><a class="trigger3" id="11" style="cursor: pointer; color: white; font-size: 20px">Log In</a></li>
         <li><a class="trigger4" id="22" style="cursor: pointer; color: white; font-size: 20px">Log Out</a></li>
+
       </ul>
     </div>
   </nav>
@@ -99,13 +97,17 @@
       <input type="text" name="userid" id="userid" placeholder="Userid" required />
       <br />
       <br />
-      <label id="icon" for="name"><i class="ion-ios-unlocked"></i></label>
+
+      <label id="icon" for="upasswd"><i class="ion-ios-unlocked"></i></label>
       <input type="password" name="upasswd" id="upasswd" placeholder="Password" required />
-      <label id="icon" for="name"><i class="ion-ios-locked"></i></label>
+      <label id="icon"><i class="ion-ios-locked"></i></label>
       <input
               type="password" id="uchkpassword" placeholder="Verify your Password"
               required
       />
+
+      <p id="uchkmsg" >비밀번호를 확인해 주세요.</p>
+
       <br />
       <br />
       <label id="icon" for="name"><i class="ion-ios-email"></i></label>
@@ -121,12 +123,16 @@
       <input type="text" placeholder="나머지 주소2" id="addr2" name="addr2" />
       <label id="icon" for="name"><i class="ion-ios-telephone"></i></label>
       <input type="text" placeholder="전화번호" id="uphone" name="uphone" required />
+      <input type="hidden" id="extraAddress" name="extraAddress" />
+
       <br />
       <hr/>
       <!-- RECAPTCHA Section -->
       <br/>
       <br/>
       <%-- 리캡챠 넣어주세요   --%>
+      <div class="g-recaptcha col-7" data-sitekey="6LdoIwgbAAAAALfBPVcgpuKT8532BKHw6wusA_l1" ></div>
+      <input type="hidden" id="g-recaptcha" name="g-recaptcha" />
       <hr/>
       <!--Register Button -->
       <br/>
@@ -142,21 +148,12 @@
   <div class="row">
     <div class="col span-1-of-2">
       <ul class="footer-nav">
+        <li><a href="/#" >Home</a></li>
         <li>
-          <a
-                  href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/index(final).html"
-          >Home</a
-          >
-        </li>
-        <li>
-          <a
-                  href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/about_us.html"
-          >About Us</a
-          >
-        </li>
-        <li><a href="#">Custom</a></li>
-        <li><a href="#">Artists</a></li>
-        <li><a href="#">Community</a></li>
+           <li><a href="/about" >About Us</a></li>
+           <li><a href="/custom/list">Custom</a></li>
+           <li><a href="/artist/list">Artist</a></li>
+           <li><a href="/community/list?cp=1">Community</a></li>
       </ul>
     </div>
     <div class="col span-1-of-2">
@@ -231,6 +228,7 @@
   </script>
 
 </footer>
+
 <%--로그인 모달--%>
 <div class="modal3">
   <div class="modal-content3" style="height: 250px">

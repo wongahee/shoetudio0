@@ -1,4 +1,29 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<fmt:parseNumber var="cp" value="${param.cp}" />
+<fmt:parseNumber var="sp" value="${(cp-1) / 10}" integerOnly="true" />
+<fmt:parseNumber var="sp" value="${sp * 10 + 1}" />
+<fmt:parseNumber var="ep" value="${sp + 9}" />
+
+<fmt:parseNumber var="tp" value="${cmcnt / 16}" integerOnly="true" />
+<c:if test="${(cmcnt % 16) > 0}" >
+  <fmt:parseNumber var="tp" value="${tp + 1}" />
+</c:if>
+
+<!-- 글번호 -->
+<fmt:parseNumber var="snum" value="${cmcnt - (cp - 1) * 16}" />
+
+<!-- 페이지 링크 검색 불가능 -->
+<c:set var="pglink" value="/community/list?cp=" />
+
+<!-- 페이지 링크 검색 가능 -->
+<c:if test="${not empty param.findkey}" >
+  <c:set var="pglink" value="/community/find?findtype=${param.findtype}&findkey=${param.findkey}&cp=" />
+</c:if>
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -35,18 +60,6 @@
       type="text/css"
     />
     <link
-            rel="stylesheet"
-            type="text/css"
-            href="/css/header-modal.css"
-    />
-    <link
-      href="https://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
-    <style>
-
-    </style>
     <script src="https://use.fontawesome.com/6a4ab084c1.js"></script>
     <title>list</title>
   </head>
@@ -60,15 +73,10 @@
             class="logo"
           />
           <ul class="main-nav">
-            <li>
-              <a
-                href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/about_us.html"
-                >About Us</a
-              >
-            </li>
-            <li><a href="#">Custom</a></li>
-            <li><a href="#">Artist</a></li>
-            <li><a href="#">Community</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/custom/list">Custom</a></li>
+            <li><a href="/artist/list">Artist</a></li>
+            <li><a href="/community/list?cp=1">Community</a></li>
             <li><a class="trigger3" id="11" style="cursor: pointer; color: white; font-size: 20px">Log In</a></li>
             <li><a class="trigger4" id="22" style="cursor: pointer; color: white; font-size: 20px">Log Out</a></li>
           </ul>
@@ -98,17 +106,19 @@
             type="text"
             name="findkey"
             id="findkey"
-            class="form-control col-4 border-primary"
+            class="form-control col-4 border-primary" value="${param.findkey}"
           />&nbsp;
-          <button type="button" class="search">
+          <button type="button" class="search" name="findbtn" id="findbtn">
             <i class="ion-ios-search-strong"></i> 검색
           </button>
         </div>
       </div>
       <div class="col span-1-of-2">
-        <button type="button" class="new">
-          <i class="ion-ios-plus"></i> 새글쓰기
-        </button>
+        <c:if test="${not empty UID}" >
+          <button type="button" class="new" id="writebtn">
+            <i class="ion-ios-plus"></i> 새글쓰기
+          </button>
+        </c:if>
       </div>
     </div>
 
@@ -127,196 +137,29 @@
             </tr>
           </thead>
           <tbody style="background: #e9e9e9">
+            <c:forEach var="cm" items="${cms}" >
+            <tr class="table-row">
+              <td>${snum}</td>
+              <td>
+                <c:if test="${fn:length(cm.title) gt 50}" >
+                <a href="/community/view?cmno=${cm.cmno}">
+                  &nbsp;&nbsp;&nbsp;&nbsp;${fn:substring(cm.title, 0, 50)}...&nbsp;&nbsp;&nbsp;&nbsp;
+                </a>
+                </c:if>
+                <c:if test="${fn:length(cm.title) le 50}" >
+                  <a href="/community/view?cmno=${cm.cmno}">
+                    &nbsp;&nbsp;${cm.title}&nbsp;&nbsp;
+                  </a>
+                </c:if>
+              </td>
+              <td>${cm.userid}</td>
+              <td>${fn:substring(cm.regdate, 0, 10)}</td>
+              <td>${cm.thumbup}</td>
+              <td>${cm.views}</td>
+              <c:set var="snum" value="${snum - 1}" />
+            </tr>
+            </c:forEach>
             <tr>
-              <th>공지</th>
-              <th>
-                <span>Hot</span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </th>
-              <th>운영자</th>
-              <th>2021.05.21</th>
-              <th>10</th>
-              <th>521</th>
-            </tr>
-            <tr class="table-row">
-              <td>1</td>
-              <td>
-                <a href="#">
-                  Maecenas luctus dignissim magna, vitae iaculis lorem  ultricies eu.
-                  Maecenas luctus dignissim magna, vitae iaculis lorem ultricies eu.
-                  Maecenas luctus dignissim magna, vitae iaculis lorem ultricies eu.
-                  Maecenas luctus dignissim magna, vitae iaculis lorem ultricies eu.</a>
-              </td>
-              <td>zzyzzy</td>
-              <td>2021.03.15</td>
-              <td>15</td>
-              <td>315</td>
-            </tr>
-            <tr class="table-row">
-              <td>1</td>
-              <td>
-                Maecenas luctus dignissim magna, vitae iaculis lorem ultricies
-                eu.
-              </td>
-              <td>zzyzzy</td>
-              <td>2021.03.15</td>
-              <td>15</td>
-              <td>315</td>
-            </tr>
-            <tr class="table-row">
-              <td>1</td>
-              <td>
-                Maecenas luctus dignissim magna, vitae iaculis lorem ultricies
-                eu.
-              </td>
-              <td>zzyzzy</td>
-              <td>2021.03.15</td>
-              <td>15</td>
-              <td>315</td>
-            </tr>
-            <tr class="table-row">
-              <td>1</td>
-              <td>
-                Maecenas luctus dignissim magna, vitae iaculis lorem ultricies
-                eu.
-              </td>
-              <td>zzyzzy</td>
-              <td>2021.03.15</td>
-              <td>15</td>
-              <td>315</td>
-            </tr>
-            <tr class="table-row">
-              <td>1</td>
-              <td>
-                Maecenas luctus dignissim magna, vitae iaculis lorem ultricies
-                eu.
-              </td>
-              <td>zzyzzy</td>
-              <td>2021.03.15</td>
-              <td>15</td>
-              <td>315</td>
-            </tr>
-            <tr class="table-row">
-              <td>1</td>
-              <td>
-                Maecenas luctus dignissim magna, vitae iaculis lorem ultricies
-                eu.
-              </td>
-              <td>zzyzzy</td>
-              <td>2021.03.15</td>
-              <td>15</td>
-              <td>315</td>
-            </tr>
-            <tr class="table-row">
-              <td>1</td>
-              <td>
-                Maecenas luctus dignissim magna, vitae iaculis lorem ultricies
-                eu.
-              </td>
-              <td>zzyzzy</td>
-              <td>2021.03.15</td>
-              <td>15</td>
-              <td>315</td>
-            </tr>
-            <tr class="table-row">
-              <td>1</td>
-              <td>
-                Maecenas luctus dignissim magna, vitae iaculis lorem ultricies
-                eu.
-              </td>
-              <td>zzyzzy</td>
-              <td>2021.03.15</td>
-              <td>15</td>
-              <td>315</td>
-            </tr>
-            <tr class="table-row">
-              <td>1</td>
-              <td>
-                Maecenas luctus dignissim magna, vitae iaculis lorem ultricies
-                eu.
-              </td>
-              <td>zzyzzy</td>
-              <td>2021.03.15</td>
-              <td>15</td>
-              <td>315</td>
-            </tr>
-            <tr class="table-row">
-              <td>1</td>
-              <td>
-                Maecenas luctus dignissim magna, vitae iaculis lorem ultricies
-                eu.
-              </td>
-              <td>zzyzzy</td>
-              <td>2021.03.15</td>
-              <td>15</td>
-              <td>315</td>
-            </tr>
-            <tr class="table-row">
-              <td>1</td>
-              <td>
-                Maecenas luctus dignissim magna, vitae iaculis lorem ultricies
-                eu.
-              </td>
-              <td>zzyzzy</td>
-              <td>2021.03.15</td>
-              <td>15</td>
-              <td>315</td>
-            </tr>
-            <tr class="table-row">
-              <td>1</td>
-              <td>
-                Maecenas luctus dignissim magna, vitae iaculis lorem ultriciesdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-                eu.
-              </td>
-              <td>zzyzzy</td>
-              <td>2021.03.15</td>
-              <td>15</td>
-              <td>315</td>
-            </tr>
-            <tr class="table-row">
-              <td>1</td>
-              <td>
-                Maecenas luctus dignissim magna, vitae iaculis lorem ultricies
-                eu.
-              </td>
-              <td>zzyzzy</td>
-              <td>2021.03.15</td>
-              <td>15</td>
-              <td>315</td>
-            </tr>
-            <tr class="table-row">
-              <td>1</td>
-              <td>
-                Maecenas luctus dignissim magna, vitae iaculis lorem ultricies
-                eu.
-              </td>
-              <td>zzyzzy</td>
-              <td>2021.03.15</td>
-              <td>15</td>
-              <td>315</td>
-            </tr>
-            <tr class="table-row">
-              <td>1</td>
-              <td>
-                Maecenas luctus dignissim magna, vitae iaculis lorem ultricies
-                eu.
-              </td>
-              <td>zzyzzy</td>
-              <td>2021.03.15</td>
-              <td>15</td>
-              <td>315</td>
-            </tr>
-            <tr class="table-row">
-              <td>1</td>
-              <td>
-                Maecenas luctus dignissim magna, vitae iaculis lorem ultricies
-                eu.
-              </td>
-              <td>zzyzzy</td>
-              <td>2021.03.15</td>
-              <td>15</td>
-              <td>315</td>
-            </tr>
           </tbody>
         </table>
       </div>
@@ -325,45 +168,28 @@
     <div class="row" id="page">
       <div class="col span-4-of-5">
         <ul class="pagination">
-          <li class="page-item">
-            <a href="#" class="page-link"
-              ><i class="ion-arrow-left-b"></i>이전</a
-            >
+          <li class="page-item <c:if test="${sp lt 11}"> disabled </c:if>" >
+            <a href="${pglink}${sp-10}" class="page-link">
+              <i class="ion-arrow-left-b"></i>이전</a>
           </li>
-          <li class="page-item active">
-            <a href="#" class="page-link">1</a>
-          </li>
-          <li class="page-item">
-            <a href="#" class="page-link">2</a>
-          </li>
-          <li class="page-item">
-            <a href="#" class="page-link">3</a>
-          </li>
-          <li class="page-item">
-            <a href="#" class="page-link">4</a>
-          </li>
-          <li class="page-item">
-            <a href="#" class="page-link">5</a>
-          </li>
-          <li class="page-item">
-            <a href="#" class="page-link">6</a>
-          </li>
-          <li class="page-item">
-            <a href="#" class="page-link">7</a>
-          </li>
-          <li class="page-item">
-            <a href="#" class="page-link">8</a>
-          </li>
-          <li class="page-item">
-            <a href="#" class="page-link">9</a>
-          </li>
-          <li class="page-item">
-            <a href="#" class="page-link">10</a>
-          </li>
-          <li class="page-item">
-            다음<a href="#" class="page-link"
-              ><i class="ion-arrow-right-b"></i
-            ></a>
+
+          <c:forEach var="i" begin="${sp}" end="${ep}" step="1">
+            <c:if test="${i le tp}" >
+              <c:if test="${i eq cp}" >
+                <li class="page-item active">
+                  <a href="${pglink}${i}" class="page-link">${i}</a>
+                </li>
+              </c:if>
+              <c:if test="${i ne cp}" >
+                <li class="page-item active">
+                  <a href="${pglink}${i}" class="page-link">${i}</a>
+                </li>
+              </c:if>
+            </c:if>
+          </c:forEach>
+
+          <li class="page-item <c:if test="${ep gt tp}" > disabled </c:if> ">
+            <a href="${pglink}${sp+10}" class="page-link"><i class="ion-arrow-right-b"></i>다음</a>   
           </li>
         </ul>
       </div>
@@ -372,26 +198,11 @@
       <div class="row">
         <div class="col span-1-of-2">
           <ul class="footer-nav">
-            <li>
-              <a
-                href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/index(final).html"
-                >Home</a
-              >
-            </li>
-            <li>
-              <a
-                href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/about_us.html"
-                >About Us</a
-              >
-            </li>
-            <li><a href="#">Custom</a></li>
-            <li><a href="#">Artists</a></li>
-            <li>
-              <a
-                href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/board/list.html"
-                >Community</a
-              >
-            </li>
+            <li><a href="/#">Home</a></li>
+            <li><a href="/about" >About Us</a></li>
+            <li><a href="/custom/list">Custom</a></li>
+            <li><a href="/artist/list">Artist</a></li>
+            <li><a href="/community/list?cp=1">Community</a></li>
           </ul>
         </div>
         <div class="col span-1-of-2">
@@ -415,6 +226,7 @@
         <p>Copyright &copy; 2021 by Shoetudio. All rights reserved.</p>
       </div>
     </footer>
+
     <%-- 로그인 모달--%>
     <div class="modal3">
       <div class="modal-content3" style="height: 250px">
@@ -454,6 +266,7 @@
       </div>
     </div>
   </body>
+
   <!-- jQuery and Bootstrap Bundle (includes Popper) -->
   <script
     src="https://code.jquery.com/jquery-3.5.1.min.js"

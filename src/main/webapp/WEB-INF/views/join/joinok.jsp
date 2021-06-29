@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="kr">
   <head>
@@ -59,18 +59,11 @@
             class="logo"
           />
           <ul class="main-nav">
-            <li>
-              <a
-                href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/about_us.html"
-                >About Us</a
-              >
-            </li>
-            <li><a href="#">Custom</a></li>
-            <li><a href="#">Artist</a></li>
-            <li>
-              <a
-                href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/board/list.html"
-                >Community</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/custom/list">Custom</a></li>
+            <li><a href="/artist/list">Artist</a></li>
+            <li><a href="/community/list?cp=1">Community</a></li>
+
             <li><a class="trigger3" id="11" style="cursor: pointer; color: white; font-size: 20px">Log In</a></li>
             <li><a class="trigger4" id="22" style="cursor: pointer; color: white; font-size: 20px">Log Out</a></li>
           </ul>
@@ -86,7 +79,6 @@
             <div id="card" class="animated fadeIn">
               <div id="upper-side">
                 <?xml version="1.0" encoding="utf-8"?>
-
                 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
                 <svg
                   version="1.1"
@@ -122,7 +114,8 @@
                 <p id="message">
                   Congratulations, your account has been successfully created.
                 </p>
-                <a href="#" id="contBtn">Continue</a>
+                <a href="/" id="contBtn">Continue</a>
+
               </div>
             </div>
             <!-- partial -->
@@ -142,18 +135,10 @@
               >
             </li>
             <li>
-              <a
-                href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/about_us.html"
-                >About Us</a
-              >
-            </li>
-            <li><a href="#">Custom</a></li>
-            <li><a href="#">Artists</a></li>
-            <li>
-              <a
-                href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/board/list.html"
-                >Community</a
-              >
+              <li><a href="/about" >About Us</a></li>
+              <li><a href="/custom/list">Custom</a></li>
+              <li><a href="/artist/list">Artist</a></li>
+              <li><a href="/community/list?cp=1">Community</a></li>
             </li>
           </ul>
         </div>
@@ -178,6 +163,7 @@
         <p>Copyright &copy; 2021 by Shoetudio. All rights reserved.</p>
       </div>
     </footer>
+
     <%--로그인 모달--%>
     <div class="modal3">
       <div class="modal-content3" style="height: 250px">
