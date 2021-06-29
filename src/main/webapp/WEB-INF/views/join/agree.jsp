@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+
 <!DOCTYPE html>
   <head>
     <meta charset="utf-8" />
@@ -26,6 +27,16 @@
     <link
       rel="stylesheet"
       type="text/css"
+      href="/css/header-modal.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/css/joinok.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
       href="/css/queries.css"
     />
     <link
@@ -38,6 +49,7 @@
       rel="stylesheet"
     />
 
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
     <script src="https://use.fontawesome.com/6a4ab084c1.js"></script>
 
     <title>Account Registration</title>
@@ -59,6 +71,8 @@
           <li><a href="/custom/list">Custom</a></li>
           <li><a href="/artist/list">Artist</a></li>
           <li><a href="/community/list?cp=1">Community</a></li>
+          <li><a class="trigger3" id="11" style="cursor: pointer; color: white; font-size: 20px">Log In</a></li>
+          <li><a class="trigger4" id="22" style="cursor: pointer; color: white; font-size: 20px">Log Out</a></li>
         </ul>
       </div>
     </nav>
@@ -93,7 +107,7 @@
 
 제 2 조 (약관의 효력 및 변경)
 
-① 본 약관의 내용은 Shoetudio계정 웹사이트(https://accounts.kakao.com/weblogin/account) 또는 개별 서비스의 화면에 게시하거나 기타의 방법으로 공지하고, 본 약관에 동의한 여러분 모두에게 그 효력이 발생합니다.
+① 본 약관의 내용은 Shoetudio계정 웹사이트(https://accounts.shoetudio.com/weblogin/account) 또는 개별 서비스의 화면에 게시하거나 기타의 방법으로 공지하고, 본 약관에 동의한 여러분 모두에게 그 효력이 발생합니다.
 
 ② 회사는 필요한 경우 관련법령을 위배하지 않는 범위 내에서 본 약관을 변경할 수 있습니다. 본 약관이 변경되는 경우 회사는 변경사항을 시행일자 15일 전부터 여러분에게 서비스 공지사항에서 공지 또는 통지하는 것을 원칙으로 하며, 피치 못하게 여러분에게 불리한 내용으로 변경할 경우에는 그 시행일자 30일 전부터 Shoetudio계정에 등록된 이메일 주소로 이메일(이메일주소가 없는 경우 서비스 내 전자쪽지 발송, 서비스 내 알림 메시지를 띄우는 등의 별도의 전자적 수단) 발송 또는 여러분이 등록한 휴대폰번호로 Shoetudio톡 메시지 또는 문자메시지 발송하는 방법 등으로 개별적으로 알려 드리겠습니다.
 
@@ -248,7 +262,7 @@
 공고일자 : 2019년 9월 6일
 시행일자 : 2019년 9월 24일
 
-Copyright © Kakao Corp. All rights reserved.
+Copyright © Shoetuido Corp. All rights reserved.
               </textarea>
             </div>
             </form>
@@ -275,7 +289,7 @@ Copyright © Kakao Corp. All rights reserved.
 
 제 2 조 (약관의 효력 및 변경)
 
-① 본 약관의 내용은 Shoetudio계정 웹사이트(https://accounts.kakao.com/weblogin/account) 또는 개별 서비스의 화면에 게시하거나 기타의 방법으로 공지하고, 본 약관에 동의한 여러분 모두에게 그 효력이 발생합니다.
+① 본 약관의 내용은 Shoetudio계정 웹사이트(https://accounts.shoetudio.com/weblogin/account) 또는 개별 서비스의 화면에 게시하거나 기타의 방법으로 공지하고, 본 약관에 동의한 여러분 모두에게 그 효력이 발생합니다.
 
 ② 회사는 필요한 경우 관련법령을 위배하지 않는 범위 내에서 본 약관을 변경할 수 있습니다. 본 약관이 변경되는 경우 회사는 변경사항을 시행일자 15일 전부터 여러분에게 서비스 공지사항에서 공지 또는 통지하는 것을 원칙으로 하며, 피치 못하게 여러분에게 불리한 내용으로 변경할 경우에는 그 시행일자 30일 전부터 Shoetudio계정에 등록된 이메일 주소로 이메일(이메일주소가 없는 경우 서비스 내 전자쪽지 발송, 서비스 내 알림 메시지를 띄우는 등의 별도의 전자적 수단) 발송 또는 여러분이 등록한 휴대폰번호로 Shoetudio톡 메시지 또는 문자메시지 발송하는 방법 등으로 개별적으로 알려 드리겠습니다.
 
@@ -430,12 +444,13 @@ Copyright © Kakao Corp. All rights reserved.
 공고일자 : 2019년 9월 6일
 시행일자 : 2019년 9월 24일
 
-Copyright © Kakao Corp. All rights reserved.            
+Copyright © Shoetudio Corp. All rights reserved.            
                 </textarea>
               </div>
             </form>
           </div>
         </div>
+        <form>
           <br/>
           <br/>
             <!-- Footer -->
@@ -444,20 +459,10 @@ Copyright © Kakao Corp. All rights reserved.
       <div class="col span-1-of-2">
         <ul class="footer-nav">
           <li>
-            <a
-              href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/index(final).html"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a
-              href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/about_us.html"
-              >About Us</a
-            >
-          </li>
-          <li><a href="#">Custom</a></li>
-          <li><a href="#">Artists</a></li>
-          <li><a href="#">Community</a></li>
+            <li><a href="/about" >About Us</a></li>
+            <li><a href="/custom/list">Custom</a></li>
+            <li><a href="/artist/list">Artist</a></li>
+            <li><a href="/community/list?cp=1">Community</a></li>
         </ul>
       </div>
       <div class="col span-1-of-2">
@@ -481,5 +486,43 @@ Copyright © Kakao Corp. All rights reserved.
       <p>Copyright &copy; 2021 by Shoetudio. All rights reserved.</p>
     </div>
   </footer>
+          <%--로그인 모달--%>
+          <div class="modal3">
+            <div class="modal-content3" style="height: 250px">
+              <span class="close-button3">&times;</span>
+              <form>
+                <p stong>LOG IN</p>
+                <br/>
+                <div style="text-align: center">
+                  <h6>아이디 :&nbsp;&nbsp;&nbsp; <input type="text" placeholder="아이디를 입력해주세요" style="width: 300px"> </h6>
+                </div>
+                <br/>
+                <div style="text-align: center">
+                  <h6>비밀번호 : <input type="password" placeholder="비밀번호를 입력해주세요" style="width: 300px; height: 38px"> </h6>
+                </div>
+                <br/>
+                <%--          <div class="modal-button row" style="text-align: center">--%>
+                <button class="lgm-btn1 modal-button2">confirm</button>
+                <button class="lgm-btn2">cancel</button>
+                <%--          </div>--%>
+              </form>
+            </div>
+          </div>
+          <div class="modal4">
+            <div class="modal-content4" style="height: 200px">
+              <span class="close-button4">&times;</span>
+              <form>
+                <div style="text-align: center">
+                  <h2>로그아웃 하시겠습니까?</h2>
+                </div>
+                <br/>
+                <div class="modal-button3" style="text-align: center">
+                  <button class="lgm-btn1">YES</button>
+                  <button class="lgm-btn2">NO</button>
+                </div>
+              </form>
+
+            </div>
+          </div>
   </body>
 </html>

@@ -1,5 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -61,9 +60,6 @@
       type="text/css"
     />
     <link
-      href="https://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css"
-      rel="stylesheet"
-    />
     <script src="https://use.fontawesome.com/6a4ab084c1.js"></script>
     <title>list</title>
   </head>
@@ -77,15 +73,12 @@
             class="logo"
           />
           <ul class="main-nav">
-            <li>
-              <a
-                href="/about"
-                >About Us</a
-              >
-            </li>
+            <li><a href="/about">About Us</a></li>
             <li><a href="/custom/list">Custom</a></li>
             <li><a href="/artist/list">Artist</a></li>
             <li><a href="/community/list?cp=1">Community</a></li>
+            <li><a class="trigger3" id="11" style="cursor: pointer; color: white; font-size: 20px">Log In</a></li>
+            <li><a class="trigger4" id="22" style="cursor: pointer; color: white; font-size: 20px">Log Out</a></li>
           </ul>
         </div>
       </nav>
@@ -144,7 +137,6 @@
             </tr>
           </thead>
           <tbody style="background: #e9e9e9">
-
             <c:forEach var="cm" items="${cms}" >
             <tr class="table-row">
               <td>${snum}</td>
@@ -167,7 +159,7 @@
               <c:set var="snum" value="${snum - 1}" />
             </tr>
             </c:forEach>
-
+            <tr>
           </tbody>
         </table>
       </div>
@@ -178,8 +170,7 @@
         <ul class="pagination">
           <li class="page-item <c:if test="${sp lt 11}"> disabled </c:if>" >
             <a href="${pglink}${sp-10}" class="page-link">
-              <i class="ion-arrow-left-b"></i>이전</a
-            >
+              <i class="ion-arrow-left-b"></i>이전</a>
           </li>
 
           <c:forEach var="i" begin="${sp}" end="${ep}" step="1">
@@ -198,9 +189,7 @@
           </c:forEach>
 
           <li class="page-item <c:if test="${ep gt tp}" > disabled </c:if> ">
-            <a href="${pglink}${sp+10}" class="page-link"
-              ><i class="ion-arrow-right-b"></i
-            >다음</a>
+            <a href="${pglink}${sp+10}" class="page-link"><i class="ion-arrow-right-b"></i>다음</a>   
           </li>
         </ul>
       </div>
@@ -209,26 +198,11 @@
       <div class="row">
         <div class="col span-1-of-2">
           <ul class="footer-nav">
-            <li>
-              <a
-                href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/index(final).html"
-                >Home</a
-              >
-            </li>
-            <li>
-              <a
-                href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/about_us.html"
-                >About Us</a
-              >
-            </li>
-            <li><a href="#">Custom</a></li>
-            <li><a href="#">Artists</a></li>
-            <li>
-              <a
-                href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/board/list.html"
-                >Community</a
-              >
-            </li>
+            <li><a href="/#">Home</a></li>
+            <li><a href="/about" >About Us</a></li>
+            <li><a href="/custom/list">Custom</a></li>
+            <li><a href="/artist/list">Artist</a></li>
+            <li><a href="/community/list?cp=1">Community</a></li>
           </ul>
         </div>
         <div class="col span-1-of-2">
@@ -252,7 +226,47 @@
         <p>Copyright &copy; 2021 by Shoetudio. All rights reserved.</p>
       </div>
     </footer>
+
+    <%-- 로그인 모달--%>
+    <div class="modal3">
+      <div class="modal-content3" style="height: 250px">
+        <span class="close-button3">&times;</span>
+        <form>
+          <p stong>LOG IN</p>
+          <br/>
+          <div style="text-align: center">
+            <h6>아이디 :&nbsp;&nbsp;&nbsp; <input type="text" placeholder="아이디를 입력해주세요" style="width: 300px"> </h6>
+          </div>
+          <br/>
+          <div style="text-align: center">
+            <h6>비밀번호 : <input type="password" placeholder="비밀번호를 입력해주세요" style="width: 300px; height: 38px"> </h6>
+          </div>
+          <br/>
+          <%--          <div class="modal-button row" style="text-align: center">--%>
+          <button class="lgm-btn1 modal-button2">confirm</button>
+          <button class="lgm-btn2">cancel</button>
+          <%--          </div>--%>
+        </form>
+      </div>
+    </div>
+    <div class="modal4">
+      <div class="modal-content4" style="height: 200px">
+        <span class="close-button4">&times;</span>
+        <form>
+          <div style="text-align: center">
+            <h2>로그아웃 하시겠습니까?</h2>
+          </div>
+          <br/>
+          <div class="modal-button3" style="text-align: center">
+            <button class="lgm-btn1">YES</button>
+            <button class="lgm-btn2">NO</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
   </body>
+
   <!-- jQuery and Bootstrap Bundle (includes Popper) -->
   <script
     src="https://code.jquery.com/jquery-3.5.1.min.js"

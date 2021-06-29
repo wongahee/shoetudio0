@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -8,6 +8,11 @@
           rel="stylesheet"
           type="text/css"
           href="../css/normalise.css"
+  />
+  <link
+          rel="stylesheet"
+          type="text/css"
+          href="/css/header-modal.css"
   />
   <link
           rel="stylesheet"
@@ -64,6 +69,9 @@
         <li><a href="/custom/list">Custom</a></li>
         <li><a href="/artist/list">Artist</a></li>
         <li><a href="/community/list?cp=1">Community</a></li>
+        <li><a class="trigger3" id="11" style="cursor: pointer; color: white; font-size: 20px">Log In</a></li>
+        <li><a class="trigger4" id="22" style="cursor: pointer; color: white; font-size: 20px">Log Out</a></li>
+
       </ul>
     </div>
   </nav>
@@ -89,6 +97,7 @@
       <input type="text" name="userid" id="userid" placeholder="Userid" required />
       <br />
       <br />
+
       <label id="icon" for="upasswd"><i class="ion-ios-unlocked"></i></label>
       <input type="password" name="upasswd" id="upasswd" placeholder="Password" required />
       <label id="icon"><i class="ion-ios-locked"></i></label>
@@ -96,7 +105,9 @@
               type="password" id="uchkpassword" placeholder="Verify your Password"
               required
       />
+
       <p id="uchkmsg" >비밀번호를 확인해 주세요.</p>
+
       <br />
       <br />
       <label id="icon" for="name"><i class="ion-ios-email"></i></label>
@@ -113,6 +124,7 @@
       <label id="icon" for="name"><i class="ion-ios-telephone"></i></label>
       <input type="text" placeholder="전화번호" id="uphone" name="uphone" required />
       <input type="hidden" id="extraAddress" name="extraAddress" />
+
       <br />
       <hr/>
       <!-- RECAPTCHA Section -->
@@ -136,21 +148,12 @@
   <div class="row">
     <div class="col span-1-of-2">
       <ul class="footer-nav">
+        <li><a href="/#" >Home</a></li>
         <li>
-          <a
-                  href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/index(final).html"
-          >Home</a
-          >
-        </li>
-        <li>
-          <a
-                  href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/about_us.html"
-          >About Us</a
-          >
-        </li>
-        <li><a href="#">Custom</a></li>
-        <li><a href="#">Artists</a></li>
-        <li><a href="#">Community</a></li>
+           <li><a href="/about" >About Us</a></li>
+           <li><a href="/custom/list">Custom</a></li>
+           <li><a href="/artist/list">Artist</a></li>
+           <li><a href="/community/list?cp=1">Community</a></li>
       </ul>
     </div>
     <div class="col span-1-of-2">
@@ -225,5 +228,44 @@
   </script>
 
 </footer>
+
+<%--로그인 모달--%>
+<div class="modal3">
+  <div class="modal-content3" style="height: 250px">
+    <span class="close-button3">&times;</span>
+    <form>
+      <p stong>LOG IN</p>
+      <br/>
+      <div style="text-align: center">
+        <h6>아이디 :&nbsp;&nbsp;&nbsp; <input type="text" placeholder="아이디를 입력해주세요" style="width: 300px"> </h6>
+      </div>
+      <br/>
+      <div style="text-align: center">
+        <h6>비밀번호 : <input type="password" placeholder="비밀번호를 입력해주세요" style="width: 300px; height: 38px"> </h6>
+      </div>
+      <br/>
+      <%--          <div class="modal-button row" style="text-align: center">--%>
+      <button class="lgm-btn1 modal-button2">confirm</button>
+      <button class="lgm-btn2">cancel</button>
+      <%--          </div>--%>
+    </form>
+  </div>
+</div>
+<div class="modal4">
+  <div class="modal-content4" style="height: 200px">
+    <span class="close-button4">&times;</span>
+    <form>
+      <div style="text-align: center">
+        <h2>로그아웃 하시겠습니까?</h2>
+      </div>
+      <br/>
+      <div class="modal-button3" style="text-align: center">
+        <button class="lgm-btn1">YES</button>
+        <button class="lgm-btn2">NO</button>
+      </div>
+    </form>
+
+  </div>
+</div>
 </body>
 </html>
