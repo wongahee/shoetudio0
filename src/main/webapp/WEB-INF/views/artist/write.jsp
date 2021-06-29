@@ -1,6 +1,9 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-
+<c:set var="thumbURL" value="http://localhost/thumb/" />
 
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <!-- Bootstrap CSS -->
@@ -8,7 +11,6 @@
 <link rel="stylesheet" type="text/css" href="/css/templatemo.css" />
 <link rel="stylesheet" type="text/css" href="/css/header_footer.css" />
 <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
-<link rel="stylesheet" type="text/css" href="/css/header-modal.css"/>
 
 <header>
     <nav>
@@ -17,19 +19,13 @@
                     src="/img/Shoetudio_logo.png"
                     alt="Shoetudio"
                     class="logo"
+                    onclick="location.href='/#'"
             />
             <ul class="main-nav">
-                <li>
-                    <a
-                            href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/about_us.html"
-                    >About Us</a
-                    >
-                </li>
-                <li><a href="#">Custom</a></li>
-                <li><a href="#">Artist</a></li>
-                <li><a href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/board/list.html">Community</a></li>
-                <li><a class="trigger3" id="11" style="cursor: pointer; color: white; font-size: 20px">Log In</a></li>
-                <li><a class="trigger4" id="22" style="cursor: pointer; color: white; font-size: 20px">Log Out</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/custom/list">Custom</a></li>
+                <li><a href="/artist/list">Artist</a></li>
+                <li><a href="/board/list">Community</a></li>
             </ul>
         </div>
     </nav>
@@ -47,8 +43,8 @@
 
                 <div class="form-group row" style="margin-bottom: 10px">
                     <label class="col-2 col-form-label text-dark
-                                              text-right" for="title" style="margin-top: 10px">Title</label>
-                    <input type="text" name="title" id="title"
+                                              text-right" for="awtitle" style="margin-top: 10px">Title</label>
+                    <input type="text" name="awtitle" id="awtitle"
                            class="border-light form-control col-9">
                 </div>
 
@@ -56,41 +52,41 @@
                     <label class="col-2 col-form-label text-dark
                                               text-right" for="userid" style="margin-top: 10px">Writer</label>
                     <input type="text" name="userid" id="userid"
-                           class="border-light form-control col-9" readonly>
+                           class="border-light form-control col-9" readonly value="${UID}">
                 </div>
 
                 <div class="form-group row" style="margin-bottom: 15px">
                     <label class="col-2 col-form-label text-dark
-                                              text-right" for="model" style="margin-top: 10px">Model</label>
-                    <input type="text" name="model" id="model"
+                                              text-right" for="shoetype" style="margin-top: 10px">Model</label>
+                    <input type="text" name="shoetype" id="shoetype"
                            class="border-light form-control col-9" >
                 </div>
 
                 <div class="form-group row">
                     <label class="col-2 col-form-label text-dark
-                                              text-right" for="production">Production Period</label>
-                    <input type="text" name="production" id="production"
+                                              text-right" for="custperiod">Production Period</label>
+                    <input type="text" name="custperiod" id="custperiod"
                            class="border-light form-control col-9" >
                 </div>
 
                 <div class="form-group row" style="margin-bottom: 10px">
                     <label class="col-2 col-form-label text-dark
-                                              text-right" for="cost" style="margin-top: 10px">Work Cost</label>
-                    <input type="text" name="cost" id="cost"
+                                              text-right" for="shoecost" style="margin-top: 10px">Work Cost</label>
+                    <input type="text" name="shoecost" id="shoecost"
                            class="border-light form-control col-9" >
                 </div>
 
                 <div class="form-group row" style="margin-bottom: 20px" >
                     <label class="col-2 col-form-label text-dark
-                                              text-right" for="shipping" style="margin-top: 10px">Shipping fee</label>
-                    <input type="text" name="shipping" id="shipping"
+                                              text-right" for="shippingfee" style="margin-top: 10px">Shipping fee</label>
+                    <input type="text" name="shippingfee" id="shippingfee"
                            class="border-light form-control col-9">
                 </div>
 
                 <div class="form-group row" style="margin-bottom: 15px">
                     <label class="col-2 col-form-label text-dark
-                                              text-right" for="contents" style="margin-top: 110px">Contents</label>
-                    <textarea id="contents" name="contents" class="border-dark form-control col-9" rows="10"></textarea>
+                                              text-right" for="awcont" style="margin-top: 110px">Contents</label>
+                    <textarea id="awcont" name="awcont" class="border-dark form-control col-9" rows="10"></textarea>
                 </div>
 
                 <div class="form-group row">
@@ -144,6 +140,7 @@
             </form>
         </div>
     </div>
+    <input type="hidden" name="userid" value="${UID}" >
 </div>
 <!-- 컨테이너 끝-->
 
@@ -151,21 +148,11 @@
     <div class="row">
         <div class="col span-1-of-2">
             <ul class="footer-nav">
-                <li>
-                    <a
-                            href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/index(final).html"
-                    >Home</a
-                    >
-                </li>
-                <li>
-                    <a
-                            href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/about_us.html"
-                    >About Us</a
-                    >
-                </li>
-                <li><a href="#">Custom</a></li>
-                <li><a href="#">Artists</a></li>
-                <li><a href="#">Community</a></li>
+                <li><a href="/index">Home</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/custom/list">Custom</a></li>
+                <li><a href="/artist/list">Artist</a></li>
+                <li><a href="/community/list">Community</a></li>
             </ul>
         </div>
         <div class="col span-1-of-2">
@@ -189,39 +176,3 @@
         <p>Copyright &copy; 2021 by Shoetudio. All rights reserved.</p>
     </div>
 </footer>
-
-<div class="modal3">
-    <div class="modal-content3" style="height: 250px">
-        <span class="close-button3">&times;</span>
-        <form>
-            <p stong>LOG IN</p>
-            <div style="text-align: left">
-                <h6>아이디 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" placeholder="아이디를 입력해주세요" style="width: 220px"> </h6>
-            </div>
-            <div style="text-align: left">
-                <h6>비밀번호 :&nbsp;&nbsp;&nbsp;<input type="password" placeholder="비밀번호를 입력해주세요" style="width: 220px; height: 38px"> </h6>
-            </div>
-
-            <button class="lgm-btn1 modal-button2">confirm</button>
-            <button class="lgm-btn2">cancel</button>
-
-        </form>
-    </div>
-</div>
-<div class="modal4">
-    <div class="modal-content4" style="height: 200px">
-        <span class="close-button4">&times;</span>
-        <form>
-            <div style="text-align: center">
-                <h3>로그아웃 하시겠습니까?</h3>
-            </div>
-            <br/>
-            <div class="modal-button3" style="text-align: center">
-                <button class="lgm-btn1">YES</button>
-                <button class="lgm-btn2">NO</button>
-            </div>
-        </form>
-
-    </div>
-</div>
-

@@ -1,10 +1,25 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<c:set var="fnames" value="${fn:split(aw.fnames, '/')}" />
+<c:set var="baseURL" value="http://localhost/cdn/" />
+
+<c:set var="newChar" value="
+" scope="application" />
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="/css/templatemo.css" />
+<link rel="stylesheet" type="text/css" href="/css/header_footer.css" />
+<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+
 <style>
     #order {
         height: 850px;
         border: none;
+        position: sticky;
         position:  -webkit-sticky;
-        position:  sticky;
         top: -30px;
     }
     tp {
@@ -15,13 +30,6 @@
 
 </style>
 
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="/css/templatemo.css" />
-<link rel="stylesheet" type="text/css" href="/css/header_footer.css" />
-<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
-<link rel="stylesheet" type="text/css" href="/css/header-modal.css"/>
-
 <header>
     <nav>
         <div class="row">
@@ -29,19 +37,13 @@
                     src="/img/Shoetudio_logo.png"
                     alt="Shoetudio"
                     class="logo"
+                    onclick="location.href='/#'"
             />
             <ul class="main-nav">
-                <li>
-                    <a
-                            href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/about_us.html"
-                    >About Us</a
-                    >
-                </li>
-                <li><a href="#">Custom</a></li>
-                <li><a href="#">Artist</a></li>
-                <li><a href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/board/list.html">Community</a></li>
-                <li><a class="trigger3" id="11" style="cursor: pointer; color: white; font-size: 20px">Log In</a></li>
-                <li><a class="trigger4" id="22" style="cursor: pointer; color: white; font-size: 20px">Log Out</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/custom/list">Custom</a></li>
+                <li><a href="/artist/list">Artist</a></li>
+                <li><a href="/board/list">Community</a></li>
             </ul>
         </div>
     </nav>
@@ -54,71 +56,24 @@
             <div class="col-lg-12 mt-5">
                 <div class="row">
 
-                    <div class="col-4" style="margin-left: 12px" >
-                        <button type="button"
-                                class="btn btn-success text-white" id="modifybtn" >
-                            <i class="fas fa-edit"></i>&nbsp;Modify</button>
-                        <button type="button" class="btn btn-danger" id="deletebtn">
-                            <i class="fas fa-trash-alt"></i>Delete</button>
-                    </div>
-                    <div class="col-2 offset-5" style="text-align: right">
-                        <button type="button" class="btn btn-light" id="listartbtn">
-                            <i class="ion-ios-toggle"></i>&nbsp;To list</button>
-                    </div>
+                    <div class="col-2 text-right offset-9">
+                        <button type="button" class="btn btn-dark" id="listartbtn"><a href="/aritst/list"></a>
+                            <i class="ion-ios-toggle"></i>&nbsp;To list</button></div>
 
                     <div class="col-md-8 bg-light">
                         <section class="py-3">
                             <div id="Slider">
 
-                                <div class="p-2 pb-2">
-                                    <div class="product-wap card rounded-0">
-                                        <div class="card rounded-0">
-                                            <img class="card-img rounded-0 img-fluid" src="/img/art1.jpg">
-                                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                            </div>
+                                <c:forEach var="f" items="${fnames}">
+                                    <c:if test="${f ne '-'}">
+                                        <c:set var="pos" value="${fn:indexOf(f, '.')}" />
+                                        <c:set var="fname" value="${fn:substring(f, 0, pos)}" />
+                                        <c:set var="fext" value="${fn:substring(f, pos + 1, fn:length(f))}" />
+                                        <div>
+                                            <img src="${baseURL}${fname}${aw.uuid}.${fext}" class="img-fluid">
                                         </div>
-                                    </div>
-                                </div>
-
-                                <div class="p-2 pb-3">
-                                    <div class="product-wap card rounded-0">
-                                        <div class="card rounded-0">
-                                            <img class="card-img rounded-0 img-fluid" src="/img/art2.jpg">
-                                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="p-2 pb-3">
-                                    <div class="product-wap card rounded-0">
-                                        <div class="card rounded-0">
-                                            <img class="card-img rounded-0 img-fluid" src="/img/art3.jpg">
-                                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="p-2 pb-3">
-                                    <div class="product-wap card rounded-0">
-                                        <div class="card rounded-0">
-                                            <img class="card-img rounded-0 img-fluid" src="/img/art4.jpg">
-                                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="p-2 pb-3">
-                                    <div class="product-wap card rounded-0">
-                                        <div class="card rounded-0">
-                                            <img class="card-img rounded-0 img-fluid" src="/img/art5.jpg">
-                                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                    </c:if>
+                                </c:forEach>
 
                             </div>
                         </section>
@@ -127,78 +82,88 @@
                     <div class="col-md-4 mt-3" id="order"> <!--작업내용 시작-->
                         <div class="card">
                             <div class="card-header">
-                                <h1 class="h2">Custom Pride Chuck Taylor All Star By You</h1>
-                                <h4 style="text-align: right; margin-bottom: -18px">abc123</h4>
+                                <h1 class="h2">${aw.awtitle}</h1>
+                                <h4 style="text-align: right; margin-bottom: -18px;">${aw.userid}</h4>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body" style="overflow:hidden;word-wrap: break-word;">
                                 <ul class="list-inline">
                                     <div style="text-align: right; margin-bottom: -45px">
-                                    <i class="far fa-eye">&nbsp;:</i>
-                                <li class="list-inline-item">
-                                    <p>123456<p>
-                                </li>
+                                        <i class="far fa-eye">&nbsp;</i>
+                                        <li class="list-inline-item">
+                                            <p>${aw.awviews}<p>
+                                        </li>
                                     </div>
-
-                                <br>
+                                    <br>
                                 <li class="list-inline-item">
                                     <h6>Model: </h6>
                                 </li>
                                 <li class="list-inline-item">
-                                    <p>Lorem ipsum<p>
+                                    <p>${aw.shoetype}<p>
                                 </li>
                                 <br>
                                 <li class="list-inline-item">
                                     <h6>production period: </h6>
                                 </li>
                                 <li class="list-inline-item">
-                                    <p>5 Day</p>
+                                    <p>${aw.custperiod}</p>
                                 </li>
                                 <br>
                                 <li class="list-inline-item">
                                     <h6>Work Cost: </h6>
                                 </li>
                                 <li class="list-inline-item">
-                                    <p>&#8361; 50,000</p>
+                                    <p>&#8361;&nbsp;${aw.shoecost}</p>
                                 </li>
                                 <br>
                                 <li class="list-inline-item">
-                                    <h6>shipping fee :</h6>
+                                    <h6>shipping fee:</h6>
                                 </li>
                                 <li class="list-inline-item">
-                                    <p>&#8361; 3,000</p>
+                                    <p>&#8361;&nbsp;${aw.shippingfee}</p>
                                 </li>
-                                <li class="list-inline-item">
-                                    <br>
+
+                                <div>
+                                <li class="list-inline-item" style="margin-bottom: 20px">
                                     <h6>To say :</h6>
                                 </li>
+                                </div>
                                 </ul>
-
-                            <li class="list-inline-item">
-                                <p class="tp">안녕하세요안녕하세요
-                                    안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
-                                    안녕하세요안녕하세요안녕하세요
-                                    안녕하세요안녕하세요안녕하세요
-                                </p>
-                            </li>
+                                    <li class="list-inline-item">
+                                        <p class="tp">${aw.awcont}</p>
+                                    </li>
                             </div>
+
                                 <div class="card-footer">
                                     <div class="row">
                                     <div class="col-md-4">
                                         <button type="button" class="btn btn-primary btn-xs" id="thumbup">
-                                            <span style="font-size:30px;"><i class="ion-heart"></i>123</span> </button>
+                                            <span style="font-size:30px;"><i class="ion-heart"></i> ${aw.awthumbup}</span> </button>
                                     </div>
                                     <div class="col-md-8">
                                         <button type="button" class="btn btn-warning btn-xs" id="Meetingbtn" data-toggle="modal" data-target="#Meetingfrm">
-                                            <span style="font-size:30px"><i class="fas fa-comments"></i>Meeting</span></button>
+                                            <span style="font-size:30px"><i class="fas fa-comments"></i> Contact</span></button>
                                     </div>
                                     </div>
                                 </div>
                         </div>
                     </div><!--작업내용 끝-->
+
+                    <div class="col-4 offset-8">
+                        <c:if test="${aw.utype eq '1' and UID eq aw.userid}">
+                            <button type="button"
+                                    class="btn btn-success text-white" id="modifybtn">
+                                <i class="fas fa-edit"></i>&nbsp;Modify</button>
+                            <button type="button" class="btn btn-danger" id="deletebtn">
+                                <i class="fas fa-trash-alt"></i>&nbsp;Delete</button>
+                        </c:if>
+                    </div>
+
                 </div>
             </div>
         </div>
         <!-- col end -->
+        <input type="hidden" id="awno" value="${param.awno}" >
+        <input type="hidden" id="utype" value="${param.utype}" >
     </div>
 </section>
 <!-- Close Content -->
@@ -216,9 +181,9 @@
             <div class="modal-body">
                 <form name="Mtfrm" id="Mtfrm" method="post">
                     <div class="form-group row text-dark">
-                        <label for="title" class="col-form-label col-3 text-right" style="margin-top: 10px">
+                        <label for="mtitle" class="col-form-label col-3 text-right" style="margin-top: 10px">
                             Title</label>
-                        <input type="text" name="title" id="title"
+                        <input type="text" name="mtitle" id="mtitle"
                                class="form-control col-md-8
                                border-dark">
                     </div>
@@ -230,16 +195,16 @@
                                border-dark">
                     </div>
                     <div class="form-group row text-dark">
-                        <label for="email" class="col-form-label col-3 text-right" style="margin-top: 10px">
+                        <label for="uemail" class="col-form-label col-3 text-right" style="margin-top: 10px">
                             E-mail</label>
-                        <input type="text" name="email" id="email"
+                        <input type="text" name="uemail" id="uemail"
                                class="form-control col-md-8
                                border-dark">
                     </div>
                     <div class="form-group row text-dark">
-                        <label for="questions" class="col-form-label col-4 text-left">
+                        <label for="mtcont" class="col-form-label col-4 text-left">
                             Questions</label>
-                        <textarea id="questions" name="questions" class="border-dark form-control col-md-12" rows="15"></textarea>
+                        <textarea id="mtcont" name="mtcont" class="border-dark form-control col-md-12" rows="15"></textarea>
                     </div>
                     <hr class="col-12">
                     <div class="form-group row justify-content-center">
@@ -259,21 +224,11 @@
     <div class="row">
         <div class="col span-1-of-2">
             <ul class="footer-nav">
-                <li>
-                    <a
-                            href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/index(final).html"
-                    >Home</a
-                    >
-                </li>
-                <li>
-                    <a
-                            href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/about_us.html"
-                    >About Us</a
-                    >
-                </li>
-                <li><a href="#">Custom</a></li>
-                <li><a href="#">Artists</a></li>
-                <li><a href="#">Community</a></li>
+                <li><a href="/index">Home</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/custom/list">Custom</a></li>
+                <li><a href="/artist/list">Artist</a></li>
+                <li><a href="/community/list">Community</a></li>
             </ul>
         </div>
         <div class="col span-1-of-2">
@@ -297,41 +252,4 @@
         <p>Copyright &copy; 2021 by Shoetudio. All rights reserved.</p>
     </div>
 </footer>
-
-<div class="modal3">
-    <div class="modal-content3" style="height: 250px">
-        <span class="close-button3">&times;</span>
-        <form>
-            <p stong>LOG IN</p>
-            <div style="text-align: left">
-                <h6>아이디 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" placeholder="아이디를 입력해주세요" style="width: 220px"> </h6>
-            </div>
-            <div style="text-align: left">
-                <h6>비밀번호 :&nbsp;&nbsp;&nbsp;<input type="password" placeholder="비밀번호를 입력해주세요" style="width: 220px; height: 38px"> </h6>
-            </div>
-
-            <button class="lgm-btn1 modal-button2">confirm</button>
-            <button class="lgm-btn2">cancel</button>
-
-        </form>
-    </div>
-</div>
-<div class="modal4">
-    <div class="modal-content4" style="height: 200px">
-        <span class="close-button4">&times;</span>
-        <form>
-            <div style="text-align: center">
-                <h3>로그아웃 하시겠습니까?</h3>
-            </div>
-            <br/>
-            <div class="modal-button3" style="text-align: center">
-                <button class="lgm-btn1">YES</button>
-                <button class="lgm-btn2">NO</button>
-            </div>
-        </form>
-
-    </div>
-</div>
-
-
 

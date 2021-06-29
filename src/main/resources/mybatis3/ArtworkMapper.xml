@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="artwork">
+    <!-- 작가: 작품 등록 / 사용자: 작품 검색 등 구현 -->
+
+    <insert id="insertArtwork" statementType="PREPARED" parameterType="Shoetudio.spring.mvc.vo.Artwork">
+        insert into artwork (awtitle, userid, awcont, fnames, fsizes, uuid, shoetype, shoecost, shippingfee, custperiod)
+        values (#{awtitle}, #{userid}, #{awcont}, #{fnames}, #{fsizes}, #{uuid}, #{shoetype}, #{shoecost}, #{shippingfee}, #{custperiod})
+    </insert>
+
+    <update id="updateArtwork" statementType="PREPARED" parameterType="Shoetudio.spring.mvc.vo.Artwork">
+        update artwork set awtitle = #{awtitle}, awcont = #{awcont},
+        <if test="todie != ''">
+            fnames = #{fnames}, fsizes = #{fsizes}
+        </if>
+        where awno = #{awno}
+    </update>
+
+    <delete id="deleteArtwork" statementType="PREPARED" parameterType="Shoetudio.spring.mvc.vo.Artwork">
+        delete from artwork where awno = #{awno}
+    </delete>
+
+    <select id="selectArtwork" statementType="PREPARED" parameterType="Integer" resultType="Shoetudio.spring.mvc.vo.Artwork">
+        select awno, awtitle, userid , awcont, awregd, awviews, awthumbup, fnames, uuid from artwork
+        order by awno desc limit #{snum}, 12
+    </select>
+
+    <select id="findSelectArtwork" statementType="PREPARED" parameterType="Map" resultType="Shoetudio.spring.mvc.vo.Artwork">
+        select awno, awtitle, userid, awregd, awviews, awthumbup from artwork
+        <if test="ftype != 'titcont'"> where ${ftype} like concat(#{fkey}, '%') </if>
+        <if test="ftype == 'titcont'"> where awtitle like concat(#{fkey}, '%') or awcont like concat(#{fkey}, '%') </if>
+        order by awno desc limit #{snum}, 12
+    </select>
+
+    <select id="selectOneArtwork" statementType="PREPARED" parameterType="String" resultType="Shoetudio.spring.mvc.vo.Artwork">
+        select awno, awtitle, at.userid userid, awcont, awregd, awviews, awthumbup, at.fnames, at.uuid, ui.utype utype
+        from artwork at inner join userInfo ui on at.userid = ui.userid
+        where awno = #{awno}
+    </select>
+
+    <select id="countArtwork" statementType="PREPARED" resultType="Integer">
+        select count(awno) cnt from artwork
+    </select>
+
+    <select id="findSelectCount" statementType="PREPARED" parameterType="Map" resultType="Integer">
+        select count(awno) cnt from artwork
+        <if test="ftype != 'titcont'"> where ${ftype} like concat(#{fkey}, '%') </if>
+        <if test="ftype == 'titcont'"> where awtitle like concat(#{fkey}, '%') or awcont like concat(#{fkey}, '%') </if>
+    </select>
+
+    <update id="viewsArtwork" statementType="PREPARED" parameterType="String">
+        update artwork set awviews = awviews + 1 where awno = #{awno}
+    </update>
+
+    <update id="updateThumbs" statementType="PREPARED" parameterType="String">
+        update artwork set awthumbup = awthumbup + 1 where awno = #{awno}
+    </update>
+
+    <select id="selectPrv" statementType="PREPARED" parameterType="String" resultType="String">
+        select * from (select awno, lead(awno) over (order by awno desc) prev from artwork)
+        newone where awno = #{awno}
+    </select>
+
+    <select id="selectNxt" statementType="PREPARED" parameterType="String" resultType="String">
+        select * from (select awno, lag(awno) over (order by awno desc) next from artwork)
+        newone where awno = #{awno}
+    </select>
+
+    <insert id="insertMeeting" statementType="PREPARED" parameterType="Shoetudio.spring.mvc.vo.Meeting">
+        insert into meeting (mtitle, userid, uemail, mtcont)
+        values (#{mtitle}, #{userid}, #{uemail}, #{mtcont})
+    </insert>
+
+    <select id="readFnames" statementType="PREPARED" parameterType="String" resultType="String">
+        select fnames from artwork where awno = #{awno}
+    </select>
+
+    <select id="readFsizes" statementType="PREPARED" parameterType="String" resultType="String">
+        select fsizes from artwork where awno = #{awno}
+    </select>
+
+    <select id="lastAwID" statementType="PREPARED" resultType="Integer">
+        select AUTO_INCREMENT - 1 awno from information_schema.TABLES where TABLE_NAME = 'artwork'
+    </select>
+</mapper>
