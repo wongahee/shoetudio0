@@ -20,4 +20,10 @@
         select count(userid) cnt from userInfo where userid = #{userid} and upasswd = #{upasswd}
     </select>
 
+    <!-- 회원정보 확인 -->
+    <select id="readUserInfo" statementType="PREPARED"
+            parameterType="String" resultType="Shoetudio.spring.mvc.vo.User" >
+        select userid, utype, uname, uemail, ujoindate from userInfo where userid = #{userid}
+    </select>
+
 </mapper>

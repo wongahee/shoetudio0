@@ -43,7 +43,7 @@
                 <li><a href="/about">About Us</a></li>
                 <li><a href="/custom/list">Custom</a></li>
                 <li><a href="/artist/list">Artist</a></li>
-                <li><a href="/board/list">Community</a></li>
+                <li><a href="/community/list?cmno=1">Community</a></li>
             </ul>
         </div>
     </nav>

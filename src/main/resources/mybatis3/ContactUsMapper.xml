@@ -3,7 +3,7 @@
 <mapper namespace="contactus">
 
     <insert id="insertContact" statementType="PREPARED"
-            parameterType="SHOETUDIO.spring.mvc.vo.ContactUs">
+            parameterType="Shoetudio.spring.mvc.vo.ContactUs">
         insert into contactus (name, email, findus, message)
         values (#{name}, #{email}, #{findus}, #{message})
     </insert>

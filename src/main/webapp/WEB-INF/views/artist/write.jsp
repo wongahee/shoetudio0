@@ -5,6 +5,9 @@
 
 <c:set var="thumbURL" value="http://localhost/thumb/" />
 
+<fmt:formatNumber value="${aw.shoecost}" groupingUsed="true" />
+<fmt:formatNumber value="${aw.shippingfee}" groupingUsed="true" />
+
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
@@ -25,7 +28,7 @@
                 <li><a href="/about">About Us</a></li>
                 <li><a href="/custom/list">Custom</a></li>
                 <li><a href="/artist/list">Artist</a></li>
-                <li><a href="/board/list">Community</a></li>
+                <li><a href="/community/list?cmno=1">Community</a></li>
             </ul>
         </div>
     </nav>

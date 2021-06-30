@@ -41,6 +41,7 @@ public class UserServiceImpl implements UserService {
 
         if (udao.selectUser(u) > 0) {
             sess.setAttribute("UID", u.getUserid());
+            sess.setAttribute("user", udao.selectUserInfo(u.getUserid()));
             isLogin = true;
         }
 

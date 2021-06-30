@@ -43,7 +43,7 @@
                 <li><a href="/about">About Us</a></li>
                 <li><a href="/custom/list">Custom</a></li>
                 <li><a href="/artist/list">Artist</a></li>
-                <li><a href="/community/list">Community</a></li>
+                <li><a href="/community/list?cmno=1">Community</a></li>
             </ul>
             </div>
         </div>
@@ -71,9 +71,12 @@
         </div>  <!--검색-->
 
         <div class="col-2 text-right mt-2 mb-2">  <!--새글쓰기-->
+            <c:if test="${sessionScope.user.utype eq '1' and not empty UID }">
                 <button type="button" class="btn btn-light" id="writeartbtn">
-                <i class="ion-ios-plus">&nbsp;</i> New</button></div>
+                <i class="ion-ios-plus">&nbsp;New</i></button>
+            </c:if>
         </div>
+    </div>
 
     <!-- 리스트 시작 -->
     <div class="row">
@@ -106,6 +109,7 @@
         </c:forEach>
     </div>
     <input type="hidden" name="UID" value="${u.userid}">
+    <input type="hidden" id="utype" value="${param.utype}" >
     <!-- 리스트 끝 -->
 </div>
 

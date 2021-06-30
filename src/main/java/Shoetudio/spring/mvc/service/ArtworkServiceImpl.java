@@ -52,7 +52,7 @@ public class ArtworkServiceImpl implements ArtworkService {
             aw.setFsizes( fsizes );
             aw.setUuid( uuid );
         }
-        System.out.println(">>" + aw.getFnames());
+
         int id = awdao.insertArtwork(aw);
 
         String ofname = aw.getFnames().split("/")[0];

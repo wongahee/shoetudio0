@@ -26,14 +26,15 @@
     </select>
 
     <select id="findSelectArtwork" statementType="PREPARED" parameterType="Map" resultType="Shoetudio.spring.mvc.vo.Artwork">
-        select awno, awtitle, userid, awregd, awviews, awthumbup from artwork
-        <if test="ftype != 'titcont'"> where ${ftype} like concat(#{fkey}, '%') </if>
-        <if test="ftype == 'titcont'"> where awtitle like concat(#{fkey}, '%') or awcont like concat(#{fkey}, '%') </if>
+        select awno, awtitle, userid, awregd, awviews, awthumbup, fnames, uuid from artwork
+        <if test="ftype != 'titcont'"> where ${ftype} like concat('%', #{fkey}, '%') </if>
+        <if test="ftype == 'titcont'"> where awtitle like concat('%', #{fkey}, '%') or awcont like concat('%', #{fkey}, '%') </if>
         order by awno desc limit #{snum}, 12
     </select>
 
     <select id="selectOneArtwork" statementType="PREPARED" parameterType="String" resultType="Shoetudio.spring.mvc.vo.Artwork">
-        select awno, awtitle, at.userid userid, awcont, awregd, awviews, awthumbup, at.fnames, at.uuid, ui.utype utype
+        select awno, awtitle, at.userid userid, awcont, awregd, awviews, awthumbup, at.fnames, at.uuid, ui.utype utype,
+        shoecost, shoetype, shippingfee, custperiod
         from artwork at inner join userInfo ui on at.userid = ui.userid
         where awno = #{awno}
     </select>
@@ -44,8 +45,8 @@
 
     <select id="findSelectCount" statementType="PREPARED" parameterType="Map" resultType="Integer">
         select count(awno) cnt from artwork
-        <if test="ftype != 'titcont'"> where ${ftype} like concat(#{fkey}, '%') </if>
-        <if test="ftype == 'titcont'"> where awtitle like concat(#{fkey}, '%') or awcont like concat(#{fkey}, '%') </if>
+        <if test="ftype != 'titcont'"> where ${ftype} like concat('%', #{fkey}, '%') </if>
+        <if test="ftype == 'titcont'"> where awtitle like concat('%', #{fkey}, '%') or awcont like concat'%', (#{fkey}, '%') </if>
     </select>
 
     <update id="viewsArtwork" statementType="PREPARED" parameterType="String">

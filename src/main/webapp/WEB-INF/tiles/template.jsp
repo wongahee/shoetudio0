@@ -41,6 +41,9 @@
 <script src="/js/image.js"></script>
 <script src="/js/image2.js"></script>
 <script src="/js/custom.js"></script>
+<script src="/js/join.js"></script>
+<script src="/js/login.js"></script>
+<script src="/js/contactUs.js"></script>
 <script src="/js/loginmodal.js"></script>
 
 </body>

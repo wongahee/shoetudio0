@@ -23,7 +23,7 @@
                 <li><a href="/about">About Us</a></li>
                 <li><a href="/custom/list">Custom</a></li>
                 <li><a href="/artist/list">Artist</a></li>
-                <li><a href="/community/list">Community</a></li>
+                <li><a href="/community/list?cmno=1">Community</a></li>
             </ul>
         </div>
     </nav>
@@ -43,7 +43,7 @@
                     <label class="col-2 col-form-label text-dark
                                               text-right" for="awtitle">Title</label>
                     <input type="text" name="awtitle" id="awtitle"
-                           class="border-light form-control col-9">
+                           class="border-light form-control col-9" value="${aw.awtitle}">
                 </div>
 
                 <div class="form-group row" style="margin-bottom: 10px">
@@ -57,34 +57,34 @@
                     <label class="col-2 col-form-label text-dark
                                               text-right" for="shoetype" style="margin-top: 10px">Model</label>
                     <input type="text" name="shoetype" id="shoetype"
-                           class="border-light form-control col-9" >
+                           class="border-light form-control col-9" value="${aw.shoetype}">
                 </div>
 
                 <div class="form-group row">
                     <label class="col-2 col-form-label text-dark
                                               text-right" for="custperiod">Production Period</label>
                     <input type="text" name="custperiod" id="custperiod"
-                           class="border-light form-control col-9" >
+                           class="border-light form-control col-9" value="${aw.custperiod}">
                 </div>
 
                 <div class="form-group row" style="margin-bottom: 10px">
                     <label class="col-2 col-form-label text-dark
                                               text-right" for="shoecost" style="margin-top: 10px">Work Cost</label>
                     <input type="text" name="shoecost" id="shoecost"
-                           class="border-light form-control col-9" >
+                           class="border-light form-control col-9" value="${aw.shoecost}">
                 </div>
 
                 <div class="form-group row" style="margin-bottom: 20px" >
                     <label class="col-2 col-form-label text-dark
                                               text-right" for="shippingfee" style="margin-top: 10px">Shipping fee</label>
                     <input type="text" name="shippingfee" id="shippingfee"
-                           class="border-light form-control col-9">
+                           class="border-light form-control col-9" value="${aw.shippingfee}">
                 </div>
 
                 <div class="form-group row" style="margin-bottom: 15px">
                     <label class="col-2 col-form-label text-dark
                                               text-right" for="awcont" style="margin-top: 110px">Contents</label>
-                    <textarea id="awcont" name="awcont" class="border-dark form-control col-9" rows="10"></textarea>
+                    <textarea id="awcont" name="awcont" class="border-dark form-control col-9" rows="10">${aw.awcont}</textarea>
                 </div>
 
                 <div class="form-group row">
@@ -93,27 +93,27 @@
                     <div class="custom-file col-9">
                         <input type="file" name="file" id="file1"
                                class="custom-file-input">
-                        <label class="custom-file-label">Add File...</label>
+                        <label class="custom-file-label">${fname[0]}</label>
                     </div>
                     <div class="custom-file col-9 offset-2">
                         <input type="file" name="file" id="file2"
                                class="custom-file-input">
-                        <label class="custom-file-label">Add File...</label>
+                        <label class="custom-file-label">${fname[1]}</label>
                     </div>
                     <div class="custom-file col-9 offset-2">
                         <input type="file" name="file" id="file3"
                                class="custom-file-input">
-                        <label class="custom-file-label">Add File...</label>
+                        <label class="custom-file-label">${fname[2]}</label>
                     </div>
                     <div class="custom-file col-9 offset-2">
                         <input type="file" name="file" id="file4"
                                class="custom-file-input">
-                        <label class="custom-file-label">Add File...</label>
+                        <label class="custom-file-label">${fname[3]}</label>
                     </div>
                     <div class="custom-file col-9 offset-2">
                         <input type="file" name="file" id="file5"
                                class="custom-file-input">
-                        <label class="custom-file-label">Add File...</label>
+                        <label class="custom-file-label">${fname[4]}</label>
                     </div>
                 </div>
 

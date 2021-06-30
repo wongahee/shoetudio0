@@ -4,7 +4,7 @@
 
     <select id="selectCustom" statementType="PREPARED"
             parameterType="int"
-            resultType="SHOETUDIO.spring.mvc.vo.Custom">
+            resultType="Shoetudio.spring.mvc.vo.Custom">
         select cno, sname, fname
         from custom order by cno desc limit #{snum}, 12
     </select>

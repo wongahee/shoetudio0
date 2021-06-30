@@ -1,7 +1,7 @@
 package Shoetudio.spring.mvc.service;
 
 import Shoetudio.spring.mvc.dao.CommunityDAO;
-import Shoetudio.spring.mvc.utils.ImgUpLoadUtil;
+import Shoetudio.spring.mvc.utils.ImgUploadUtil;
 import Shoetudio.spring.mvc.vo.Community;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,9 +17,9 @@ import java.util.Map;
 public class CommunityServiceImpl implements CommunityService {
 
     private CommunityDAO cdao;
-    private ImgUpLoadUtil imgutil;
+    private ImgUploadUtil imgutil;
 
-    @Autowired public CommunityServiceImpl(CommunityDAO cdao, ImgUpLoadUtil imgutil) {
+    @Autowired public CommunityServiceImpl(CommunityDAO cdao, ImgUploadUtil imgutil) {
         this.cdao = cdao;
         this.imgutil = imgutil;
     }
@@ -30,14 +30,14 @@ public class CommunityServiceImpl implements CommunityService {
         // UUID 생성
         String uuid = imgutil.makeUUID();
 
-        if (imgutil.checkCommFile(img)) {
+        if (imgutil.checkImageFiles(img)) {
             List<String> imgs = new ArrayList<>();
 
             for(MultipartFile f : img) {
                 if (!f.getOriginalFilename().isEmpty())
                     imgs.add(imgutil.ImageUpload(f, uuid));
                 else
-                    imgs.add("-/-/-/-");
+                    imgs.add("-/-/-");
             }   // for
 
             String fnames = "";
@@ -57,14 +57,14 @@ public class CommunityServiceImpl implements CommunityService {
 
     @Override
     public void modifyCommunity(Community cm, MultipartFile[] img) {
-        if(imgutil.checkCommFile(img)) {
+        if(imgutil.checkImageFiles(img)) {
             List<String> imgs = new ArrayList<>();
 
             for(MultipartFile f : img) {
                 if (!f.getOriginalFilename().isEmpty())
                     imgs.add(imgutil.ImageUpload(f, cm.getUuid()));
                 else
-                    imgs.add("-/-/-/-");
+                    imgs.add("-/-/-");
             }   // for
 
             String fn = cdao.readFnames(cm.getCmno());

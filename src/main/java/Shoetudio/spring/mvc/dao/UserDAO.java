@@ -7,4 +7,6 @@ public interface UserDAO {
     int insertUser(User u);
     int selectOneUserid(String uid);
     int selectUser(User u);
+
+    User selectUserInfo(String userid);
 }
