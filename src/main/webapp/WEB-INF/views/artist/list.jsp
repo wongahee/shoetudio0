@@ -92,7 +92,11 @@
                     <img class="card-img rounded-0 img-fluid" src="${thumbURL}small_${aw.awno}_${fname}${aw.uuid}.${fext}" onclick="showimg('${aw.awno}')" style="cursor: pointer">
                 </div>
                 <div class="card-body">
-                    <span onclick="location.href='/artist/view?awno=${aw.awno}'" style="cursor: pointer">${aw.awtitle}</span>
+                    <span onclick="location.href='/artist/view?awno=${aw.awno}'" style="cursor: pointer">
+                        <c:if test="${fn:length(aw.awtitle) gt 20}" >
+                            ${fn:substring(aw.awtitle, 0, 20)}...
+                        </c:if>
+                        <c:if test="${fn:length(aw.awtitle) le 20}" >${aw.awtitle}</c:if></span>
                     <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
                         <p class="card-text">${aw.userid}<p>
                         <span class="">${fn:substring(aw.awregd, 0, 10)}</span>
