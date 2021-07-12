@@ -81,12 +81,12 @@ $('#rpbtn').on('click', function () {
 // new reply
 
 // 수정하기 버튼 update.jsp가 필요
-$('#modifybtn').on('click', function () {
+$('#modifybtncm').on('click', function () {
    location.href = '/community/update?cmno=' + $('#cmno').val();
 });
 
 // 삭제하기 버튼
-$('#deletebtn').on('click', function () {
+$('#deletebtncm').on('click', function () {
    location.href = '/community/cmrmv?cmno=' + $('#cmno').val();
 });
 

@@ -78,7 +78,7 @@
 </header>
 <!-- Main -->
 <section>
-  <div class="testbox">
+  <div class="testbox" style="height: 1000px">
     <h1>Registration</h1>
     <form name="joinfrm" id="joinfrm">
       <hr />
@@ -106,12 +106,12 @@
               required
       />
 
-      <p id="uchkmsg" >비밀번호를 확인해 주세요.</p>
+      <p id="uchkmsg" style="margin-left: 80px">비밀번호를 확인해 주세요.</p>
 
       <br />
       <br />
       <label id="icon" for="name"><i class="ion-ios-email"></i></label>
-      <input type="email" name="uemail" id="uemail" placeholder="Email Address" required />
+      <input type="email" name="uemail" id="uemail" placeholder="Email Address" required  style="height: 38px; border: transparent;"/>
 
       <label id="icon" for="name"><i class="ion-ios-home"></i></label>
       <input type="text" placeholder="번지수" name="zipcode" id="zipcode"/>
@@ -124,21 +124,20 @@
       <label id="icon" for="name"><i class="ion-ios-telephone"></i></label>
       <input type="text" placeholder="전화번호" id="uphone" name="uphone" required />
       <input type="hidden" id="extraAddress" name="extraAddress" />
-
       <br />
       <hr/>
       <!-- RECAPTCHA Section -->
-      <br/>
-      <br/>
       <%-- 리캡챠 넣어주세요   --%>
+      <div>
       <div class="g-recaptcha col-7" data-sitekey="6LdoIwgbAAAAALfBPVcgpuKT8532BKHw6wusA_l1" ></div>
       <input type="hidden" id="g-recaptcha" name="g-recaptcha" />
+      </div>
       <hr/>
       <!--Register Button -->
       <br/>
-      <p>By clicking Register, you agree to our<a href="/join/agree">terms and condition</a></p>
+      <p>By clicking this url link,&nbsp; you agree to our<div><a href="/join/agree">terms and condition</a></div></p>
       <br/>
-      <button type="button" class="register-button" id="joinbtn" name="joinbtn">Register</button>
+      <button type="button" class="register-button" id="joinbtn" name="joinbtn" style="margin-left: 180px; width: 100px; height: 60px; background:#412065; border-radius: 10px; color:white">Register</button>
     </form>
   </div>
 </section>

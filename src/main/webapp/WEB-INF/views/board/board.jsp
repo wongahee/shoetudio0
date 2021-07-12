@@ -68,6 +68,7 @@
             src="/img/Shoetudio_logo.png"
             alt="Shoetudio"
             class="logo"
+            onclick="location.href='/#'"
           />
           <ul class="main-nav">
             <li>
@@ -140,10 +141,10 @@
     <br/>
         
     <div class="row">
-      <c:if test="${not empty UID}" >
-      <button type="button" class="btn1" id="modifybtn">
+      <c:if test="${not empty UID and UID eq cm.userid}" >
+      <button type="button" class="btn1" id="modifybtncm">
         <p><i class="ion-ios-gear"></i>Modify</p></button>
-        <button type="button" class="btn2" id="deletebtn">
+        <button type="button" class="btn2" id="deletebtncm">
           <p><i class="ion-trash-a"></i>Delete</p></button>
 
           <button type="button" class="btn3" id="commbtn">
@@ -191,46 +192,7 @@
     </table>
   </div>
 
-  <%--모달--%>
-    <div class="modal1">
-      <div class="modal-content1">
-        <span class="close-button1">&times;</span>
-        <form id="replymodifrm" name="replymodifrm">
-        <p stong id="recontext">내용을 입력하세요</p>
-        <br/>
-        <textarea rows="12" placeholder="내용을 작성해주세요" id="moreply" name="reply" style="width: 22rem"></textarea>
-        <br/>
-        <br/>
-          <div class="modal-button">
-        <button class="btn6" id="modirp">confirm</button>
-        <button class="btn7" type="reset" >cancel</button>
-          </div>
-          <input type="hidden" name="userid" value="${UID}" />
-          <input type="hidden" id="cmno" name="cmno" value="${param.cmno}" />
-        </form>
-      </div>
-    </div>
 
-    <div class="modal2">
-      <div class="modal-content2">
-        <span class="close-button2">&times;</span>
-        <form>
-          <h1>내용을 삭제하시겠습니까?</h1>
-          <br/>
-          <br/>
-          <div class="modal-button">
-            <button type="button" class="btn6" id="redelbtn"
-              onclick="rmvreply()">YES</button>
-            <button type="reset" class="btn7">NO</button>
-            <input type="hidden" id="rno" name="rno" />
-          </div>
-        </form>
-
-      </div>
-    </div>
-
-  </div>
-    
   <!-- 댓글 작성 -->
     <div class="row">
       <hr/>
@@ -243,7 +205,7 @@
           <button class="col span-1-of-4" id="rpbtn" name="rpbtn" ><i class="ion-ios-chatboxes"></i>Comment</button>
          </c:if>
          <input type="hidden" name="userid" value="${UID}" />
-         <input type="hidden" name="cmno" value="${param.cmno}" />
+         <input type="hidden" id="cmno" name="cmno" value="${param.cmno}" />
          <input type="hidden" name="rpno" id="rpno" >
         </form>
         </div>
@@ -283,45 +245,6 @@
   </div>
 </footer>
 
-<%-- 로그인 모달--%>
-    <div class="modal3">
-      <div class="modal-content3" style="height: 250px">
-        <span class="close-button3">&times;</span>
-        <form>
-          <p stong>LOG IN</p>
-          <br/>
-          <div style="text-align: center">
-            <h6>아이디 :&nbsp;&nbsp;&nbsp; <input type="text" placeholder="아이디를 입력해주세요" style="width: 300px"> </h6>
-          </div>
-          <br/>
-          <div style="text-align: center">
-            <h6>비밀번호 : <input type="password" placeholder="비밀번호를 입력해주세요" style="width: 300px; height: 38px"> </h6>
-          </div>
-          <br/>
-<%--          <div class="modal-button row" style="text-align: center">--%>
-            <button class="lgm-btn1 modal-button2">confirm</button>
-            <button class="lgm-btn2">cancel</button>
-<%--          </div>--%>
-        </form>
-      </div>
-    </div>
-    <div class="modal4">
-      <div class="modal-content4" style="height: 200px">
-        <span class="close-button4">&times;</span>
-        <form>
-          <div style="text-align: center">
-            <h2>로그아웃 하시겠습니까?</h2>
-          </div>
-          <br/>
-          <div class="modal-button3" style="text-align: center">
-            <button class="lgm-btn1">YES</button>
-            <button class="lgm-btn2">NO</button>
-          </div>
-        </form>
-
-      </div>
-    </div>
-  </body>
    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
     <script
    src="https://code.jquery.com/jquery-3.5.1.min.js"

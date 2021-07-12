@@ -56,9 +56,20 @@
             <div class="col-lg-12 mt-5">
                 <div class="row">
 
-                    <div class="col-2 text-right offset-9">
-                        <button type="button" class="btn btn-dark" id="listartbtn"><a href="/aritst/list"></a>
-                            <i class="ion-ios-toggle"></i>&nbsp;To list</button></div>
+                    <div class="col-4" style="margin-left: 12px" >
+                    <c:if test="${aw.utype eq '1' and UID eq aw.userid}">
+                        <button type="button"
+                                class="btn btn-success text-white" id="modifybtn" >
+                            <i class="fas fa-edit"></i>&nbsp;Modify</button>
+                        <button type="button" class="btn btn-danger" id="deletebtn">
+                            <i class="fas fa-trash-alt"></i>Delete</button>
+                    </c:if>
+                    </div>
+                    <div class="col-2 offset-5" style="text-align: right">
+                        <button type="button" class="btn btn-light" id="listartbtn">
+                            <i class="ion-ios-toggle"></i>&nbsp;To list</button>
+                    </div>
+
 
                     <div class="col-md-8 bg-light">
                         <section class="py-3">
@@ -148,15 +159,6 @@
                         </div>
                     </div><!--작업내용 끝-->
 
-                    <div class="col-4 offset-8">
-                        <c:if test="${aw.utype eq '1' and UID eq aw.userid}">
-                            <button type="button"
-                                    class="btn btn-success text-white" id="modifybtn">
-                                <i class="fas fa-edit"></i>&nbsp;Modify</button>
-                            <button type="button" class="btn btn-danger" id="deletebtn">
-                                <i class="fas fa-trash-alt"></i>&nbsp;Delete</button>
-                        </c:if>
-                    </div>
 
                 </div>
             </div>

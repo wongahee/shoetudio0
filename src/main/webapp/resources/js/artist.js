@@ -123,3 +123,11 @@ $('#findbtn').on('click', function () {
 function showimg(awno) {
     location.href = '/artist/view?awno=' + awno;
 }
+
+$('#modartbtn').on('click', function () {
+    const frm = $('#modartistfrm');
+    frm.attr('method', 'post');
+    frm.attr('enctype', 'multipart/form-data');
+    frm.attr('action', '/artist/update');
+    frm.submit();
+});

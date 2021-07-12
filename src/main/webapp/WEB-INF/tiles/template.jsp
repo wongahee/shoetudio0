@@ -45,6 +45,7 @@
 <script src="/js/login.js"></script>
 <script src="/js/contactUs.js"></script>
 <script src="/js/loginmodal.js"></script>
+<script src="/js/community.js"></script>
 
 </body>
 </html>

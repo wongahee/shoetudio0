@@ -214,9 +214,7 @@
       <div class="col span-1-of-2">
         <ul class="footer-nav">
           <li>
-            <a
-              href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/index(final).html"
-              >Home</a
+            <a href="/Users/josephlee/Desktop/shoetudio_team_project/teamproject/index(final).html">Home</a
             >
           </li>
           <li>

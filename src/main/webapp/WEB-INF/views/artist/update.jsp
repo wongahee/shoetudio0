@@ -37,7 +37,7 @@
                 <i class="fas fa-list"></i>&nbsp;To list</button></div>
 
         <div class="card card-body bg-light col-10 offset-1">
-            <form id="modartfrm" name="modartfrm">
+            <form id="modartistfrm" name="modartistfrm">
 
                 <div class="form-group row">
                     <label class="col-2 col-form-label text-dark
@@ -121,7 +121,7 @@
                     <hr class="col-10">
                     <div class="col-12 text-center">
                         <button type="button" class="btn btn-primary"
-                                id="newartbtn"><i class="fas fa-check"></i> OK</button>
+                                id="modartbtn"><i class="fas fa-check"></i> OK</button>
                         <button type="reset" class="btn btn-danger"
                                 id="cancelbtn"><i class="fas fa-times"></i> Reset</button>
                     </div>
